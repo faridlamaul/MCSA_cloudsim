@@ -7,7 +7,7 @@
 3. Select the JDK version 1.8
 3. Add the following libraries to the project
     ```agsl
-   1. [cloudsim-3.0.3.jar](https://drive.google.com/file/d/1wiY739LsPtCsrXEf34_-8IpQ-VkPkI2F/view?usp=sharing)
+   1. cloudsim-3.0.3.jar
    2. cloudsim-examples-3.0.3.jar
    3. commons-math3-3.6.1.jar
    ```
