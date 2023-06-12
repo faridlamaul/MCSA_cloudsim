@@ -9,17 +9,30 @@ public class CSA {
         csa ( NTask, NVM, AP, fl );
     }
 
-    public static void csa ( int NTask, int NVM, double AP, double fl) {
+    public static void csa ( int NTask, int NVM, double AP, double fl ) {
         // Inisialisasi posisi awal Task dan VM
         double[][] x = Init.init ( NTask, NVM );
         for ( int i = 0; i < NTask; i++ ) {
             for ( int j = 0; j < NVM; j++ ) {
-                System.out.println ( "x[" + i + "][" + j + "] : " + x[i][j] );
+                System.out.println ( "x[" + i + "][" + j + "] : " + x[ i ][ j ] );
             }
         }
 
         // Inisialisasi memori (pemetaan antara task ke i pada VM ke j)
-        
+        double[][] mem = x.clone ( );
+        for ( int i = 0; i < NTask; i++ ) {
+            for ( int j = 0; j < NVM; j++ ) {
+                System.out.println ( "mem[" + i + "][" + j + "] : " + mem[ i ][ j ] );
+            }
+        }
+
+        // Inisialisasi fitness
+        double[] ft_mem = Fitness.fitness ( mem, NTask, NVM );
+        for ( int i = 0; i < NTask; i++ ) {
+            System.out.println ( "ft_mem[" + i + "] : " + ft_mem[ i ] );
+        }
+
+        //
 
     }
 }
