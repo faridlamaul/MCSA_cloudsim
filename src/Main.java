@@ -1,7 +1,7 @@
-import org.cloudbus.cloudsim.examples.CloudSimExample1;
+import Algorithm.CSA;
 
 public class Main {
     public static void main ( String[] args ) {
-        CloudSimExample1.main ( args );
+        CSA.csa ( 5, 5, 0.1, 0.1 );
     }
 }
