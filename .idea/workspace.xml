@@ -6,7 +6,12 @@
   <component name="ChangeListManager">
     <list default="true" id="5ee48a43-be73-4eaf-9dbb-b6fd432fd18c" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/commons_math3_3_6_1.xml" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/MCSA_cloudsim.iml" beforeDir="false" afterPath="$PROJECT_DIR$/MCSA_cloudsim.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Algorithm/CSA.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Algorithm/CSA.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Simulation/CloudSimCSA.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Simulation/CloudSimCSA.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -39,11 +44,32 @@
     &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
     &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
     &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
-    &quot;project.structure.last.edited&quot;: &quot;Project&quot;,
+    &quot;last_opened_file_path&quot;: &quot;/Users/mac/Library/CloudStorage/OneDrive-InstitutTeknologiSepuluhNopember/2023 Bimbingan TA Henning/Topik Komputasi Awan/Ahmad Lamaul Farid/Github/MCSA_cloudsim/data/CSA/Random/Stratified&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;Libraries&quot;,
     &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
     &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;
   }
 }</component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/data/CSA/Random/Stratified" />
+      <recent name="$PROJECT_DIR$/data/CSA" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/data/CSA/SDSC" />
+      <recent name="$PROJECT_DIR$/data/CSA/Random/Stratified" />
+    </key>
+  </component>
+  <component name="RunManager">
+    <configuration name="CloudSimCSA - Debug" type="Application" factoryName="Application">
+      <output_file path="$PROJECT_DIR$/debug/console/output/logs.txt" is_save="true" />
+      <option name="MAIN_CLASS_NAME" value="Simulation.CloudSimCSA" />
+      <module name="MCSA_cloudsim" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+  </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
