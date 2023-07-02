@@ -5,7 +5,7 @@ import org.cloudbus.cloudsim.Vm;
 
 import java.util.List;
 
-public class CrowSearchAlgorithm {
+public class CSA {
     public int[] AT;
 
     public double[] CT;
@@ -66,8 +66,8 @@ public class CrowSearchAlgorithm {
         // Store allocation task to VM in AT and TAT
         this.AT = resultMachine;
 
-        double ET = 0;
-        double ER = 0;
+        double ET;
+        double ER;
         double[] CompletionTime = new double[ N ];
 
         for ( int i = 0; i < N; i++ ) {
@@ -83,8 +83,8 @@ public class CrowSearchAlgorithm {
     public void randomAllocateTasksToVm ( int M, int N, List<Cloudlet> cloudletList, List<Vm> vmlist ) {
         int[] AllocationTask = new int[ N ];
         double[] CompletionTime = new double[ N ];
-        double ET = 0;
-        double ER = 0;
+        double ET;
+        double ER;
         for ( int i = 0; i < N; i++ ) {
             int k = ( int ) ( Math.random ( ) * M );
             AllocationTask[ i ] = k;
