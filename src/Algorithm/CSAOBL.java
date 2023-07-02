@@ -3,9 +3,10 @@ package Algorithm;
 import org.cloudbus.cloudsim.Cloudlet;
 import org.cloudbus.cloudsim.Vm;
 
+import java.util.ArrayList;
 import java.util.List;
 
-public class OppositionBasedLearning {
+public class CSAOBL {
     public int[] AT;
 
     public double[] CT;
@@ -66,8 +67,8 @@ public class OppositionBasedLearning {
         // Store allocation task to VM in AT and TAT
         this.AT = resultMachine;
 
-        double ET = 0;
-        double ER = 0;
+        double ET;
+        double ER;
         double[] CompletionTime = new double[ N ];
 
         for ( int i = 0; i < N; i++ ) {
@@ -80,13 +81,13 @@ public class OppositionBasedLearning {
     }
 
     // Randomly allocate tasks to VM
-    public void randomAllocateTasksToVm ( int M, int N, List<Cloudlet> cloudletList, List<Vm> vmlist ) {
+    public void randomAllocateTasksToVm ( int M, int N, List<Cloudlet> cloudletList, List<Vm> vmlist, ArrayList<Double> csaAllocation ) {
         int[] AllocationTask = new int[ N ];
         double[] CompletionTime = new double[ N ];
-        double ET = 0;
-        double ER = 0;
+        double ET;
+        double ER;
         for ( int i = 0; i < N; i++ ) {
-            int k = ( int ) ( Math.random ( ) * M );
+            int k = csaAllocation.get ( i ).intValue ( );
             AllocationTask[ i ] = M - k;
             ET = cloudletList.get ( i ).getCloudletLength ( ) / ( vmlist.get ( AllocationTask[ i ] ).getMips ( ) * vmlist.get ( AllocationTask[ i ] ).getNumberOfPes ( ) );
             ER = ( double ) cloudletList.get ( i ).getCloudletFileSize ( ) / vmlist.get ( AllocationTask[ i ] ).getBw ( );
