@@ -5,7 +5,7 @@ import org.cloudbus.cloudsim.Vm;
 
 import java.util.List;
 
-public class CrowSearchAlgorithm {
+public class OppositionBasedLearning {
     public int[] AT;
 
     public double[] CT;
@@ -87,7 +87,7 @@ public class CrowSearchAlgorithm {
         double ER = 0;
         for ( int i = 0; i < N; i++ ) {
             int k = ( int ) ( Math.random ( ) * M );
-            AllocationTask[ i ] = k;
+            AllocationTask[ i ] = M - k;
             ET = cloudletList.get ( i ).getCloudletLength ( ) / ( vmlist.get ( AllocationTask[ i ] ).getMips ( ) * vmlist.get ( AllocationTask[ i ] ).getNumberOfPes ( ) );
             ER = ( double ) cloudletList.get ( i ).getCloudletFileSize ( ) / vmlist.get ( AllocationTask[ i ] ).getBw ( );
             CompletionTime[ i ] = ET + ER;
