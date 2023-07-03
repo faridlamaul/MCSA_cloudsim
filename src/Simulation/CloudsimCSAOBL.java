@@ -331,11 +331,11 @@ public class CloudsimCSAOBL {
             allocatedTasks = csaobl.getAllocatedTasks ( );
             makespan = csaobl.getMakespan ( );
 
-            for ( int i = 0; i < cloudletNumber; i++ ) {
-                System.out.print ( allocatedTasks[ i ] + " " );
-            }
-            System.out.println ( );
-            System.out.println ( "makespan: " + makespan );
+//            for ( int i = 0; i < cloudletNumber; i++ ) {
+//                System.out.print ( allocatedTasks[ i ] + " " );
+//            }
+//            System.out.println ( );
+//            System.out.println ( "makespan: " + makespan );
 
             for ( int i = 0; i < cloudletNumber; i++ ) {
                 outputWriter.write ( Integer.toString ( allocatedTasks[ i ] ) );
@@ -380,26 +380,26 @@ public class CloudsimCSAOBL {
                 maxIteration--;
             }
 
-            for ( int i = 0; i < cloudletNumber; i++ ) {
-                System.out.print ( allocatedTasks[ i ] + " " );
-
-            }
-            System.out.println ( );
-            System.out.println ( "makespan: " + makespan );
+//            for ( int i = 0; i < cloudletNumber; i++ ) {
+//                System.out.print ( allocatedTasks[ i ] + " " );
+//
+//            }
+//            System.out.println ( );
+//            System.out.println ( "makespan: " + makespan );
 
             for ( int i = 0; i < cloudletNumber; i++ ) {
                 broker.bindCloudletToVm ( cloudletList.get ( i ).getCloudletId ( ), vmlist.get ( allocatedTasks[ i ] ).getId ( ) );
             }
 
             //Seventh step: Starts the simulation
-//            CloudSim.startSimulation ( );
+            CloudSim.startSimulation ( );
 
             //Final step: Print results when simulation is over
             List<Cloudlet> newList = broker.getCloudletReceivedList ( );
 
-//            CloudSim.stopSimulation ( );
+            CloudSim.stopSimulation ( );
 
-//            printCloudletList ( newList );
+            printCloudletList ( newList );
 
             Log.printLine ( "Cloud Simulation Crow Search Algorithm - Opposition Based Learning finished!" );
         } catch (Exception e) {
