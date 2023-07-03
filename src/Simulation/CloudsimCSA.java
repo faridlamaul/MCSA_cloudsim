@@ -343,7 +343,7 @@ public class CloudsimCSA {
         }
         long endTime   = System.nanoTime();
         long totalTime = endTime - startTime;
-        System.out.println ( "Total time: " + totalTime );
+        Log.printLine ( "Total Time to Run Program : " + totalTime/1_000_000_000 + " seconds" );
     }
 
     private static PowerDatacenter createDatacenter ( String name, int hostId ) {

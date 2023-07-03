@@ -233,6 +233,7 @@ public class CloudsimCSAOBL {
      * Creates main() to run this example
      */
     public static void main ( String[] args ) {
+        long startTime = System.nanoTime();
         Log.printLine ( "Starting Cloud Simulation Crow Search Algorithm - Opposition Based Learning ..." );
 
         try {
@@ -406,6 +407,9 @@ public class CloudsimCSAOBL {
             e.printStackTrace ( );
             Log.printLine ( "The simulation has been terminated due to an unexpected error" );
         }
+        long endTime   = System.nanoTime();
+        long totalTime = endTime - startTime;
+        Log.printLine ( "Total Time to Run Program : " + totalTime/1_000_000_000 + " seconds" );
     }
 
     private static PowerDatacenter createDatacenter ( String name, int hostId ) {
