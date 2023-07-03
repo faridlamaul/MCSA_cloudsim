@@ -27,6 +27,8 @@ import org.cloudbus.cloudsim.provisioners.BwProvisionerSimple;
 import org.cloudbus.cloudsim.provisioners.PeProvisionerSimple;
 import org.cloudbus.cloudsim.provisioners.RamProvisionerSimple;
 
+import static Algorithm.FitnessFunction.calculateFitness;
+
 public class CloudsimCSA {
 
     private static PowerDatacenter datacenter1, datacenter2, datacenter3, datacenter4, datacenter5, datacenter6;
@@ -82,7 +84,7 @@ public class CloudsimCSA {
 //        Log.printLine ( System.getProperty ( "user.dir" ) + "/data/CSA/Random/Simple/RandSimple9000.txt" );
 //        Log.printLine ( System.getProperty ( "user.dir" ) + "/data/CSA/Random/Simple/RandSimple10000.txt" );
 //        Log.printLine ( System.getProperty ( "user.dir" ) + "/data/CSA/Random/Stratified/RandStratified1000.txt" );
-//        Log.printLine ( System.getProperty ( "user.dir" ) + "/data/CSA/Random/Stratified/RandStratified2000.txt" );
+        Log.printLine ( System.getProperty ( "user.dir" ) + "/data/CSA/Random/Stratified/RandStratified2000.txt" );
 //        Log.printLine ( System.getProperty ( "user.dir" ) + "/data/CSA/Random/Stratified/RandStratified3000.txt" );
 //        Log.printLine ( System.getProperty ( "user.dir" ) + "/data/CSA/Random/Stratified/RandStratified4000.txt" );
 //        Log.printLine ( System.getProperty ( "user.dir" ) + "/data/CSA/Random/Stratified/RandStratified5000.txt" );
@@ -91,7 +93,7 @@ public class CloudsimCSA {
 //        Log.printLine ( System.getProperty ( "user.dir" ) + "/data/CSA/Random/Stratified/RandStratified8000.txt" );
 //        Log.printLine ( System.getProperty ( "user.dir" ) + "/data/CSA/Random/Stratified/RandStratified9000.txt" );
 //        Log.printLine ( System.getProperty ( "user.dir" ) + "/data/CSA/Random/Stratified/RandStratified10000.txt" );
-        Log.printLine ( System.getProperty ( "user.dir" ) + "/data/CSA/Random/Stratified/RandStratifiedTest100.txt" );
+//        Log.printLine ( System.getProperty ( "user.dir" ) + "/data/CSA/Random/Stratified/RandStratifiedTest100.txt" );
 
 
         try {
@@ -108,7 +110,7 @@ public class CloudsimCSA {
 //            File fobj = new File ( System.getProperty ( "user.dir" ) + "/data/CSA/Random/Simple/RandSimple9000.txt" );
 //            File fobj = new File ( System.getProperty ( "user.dir" ) + "/data/CSA/Random/Simple/RandSimple10000.txt" );
 //            File fobj = new File ( System.getProperty ( "user.dir" ) + "/data/CSA/Random/Stratified/RandStratified1000.txt" );
-//            File fobj = new File ( System.getProperty ( "user.dir" ) + "/data/CSA/Random/Stratified/RandStratified2000.txt" );
+            File fobj = new File ( System.getProperty ( "user.dir" ) + "/data/CSA/Random/Stratified/RandStratified2000.txt" );
 //            File fobj = new File ( System.getProperty ( "user.dir" ) + "/data/CSA/Random/Stratified/RandStratified3000.txt" );
 //            File fobj = new File ( System.getProperty ( "user.dir" ) + "/data/CSA/Random/Stratified/RandStratified4000.txt" );
 //            File fobj = new File ( System.getProperty ( "user.dir" ) + "/data/CSA/Random/Stratified/RandStratified5000.txt" );
@@ -117,7 +119,7 @@ public class CloudsimCSA {
 //            File fobj = new File ( System.getProperty ( "user.dir" ) + "/data/CSA/Random/Stratified/RandStratified8000.txt" );
 //            File fobj = new File ( System.getProperty ( "user.dir" ) + "/data/CSA/Random/Stratified/RandStratified9000.txt" );
 //            File fobj = new File ( System.getProperty ( "user.dir" ) + "/data/CSA/Random/Stratified/RandStratified10000.txt" );
-            File fobj = new File ( System.getProperty ( "user.dir" ) + "/data/CSA/Random/Stratified/RandStratifiedTest100.txt" );
+//            File fobj = new File ( System.getProperty ( "user.dir" ) + "/data/CSA/Random/Stratified/RandStratifiedTest100.txt" );
             java.util.Scanner readFile = new java.util.Scanner ( fobj );
 
             while ( readFile.hasNextLine ( ) && cloudletnumAllocationTaskToVM > 0 ) {
@@ -142,8 +144,6 @@ public class CloudsimCSA {
         LinkedList<Cloudlet> list = new LinkedList<Cloudlet> ( );
 
         //Cloudlet parameters
-        long length = 0; // Cloudlet length (MI) - 0 for SDSC
-//        long length = 1000; // Cloudlet length (MI) - Random1000, Random2000, Random3000, Random4000, Random5000, Random6000, Random7000, Random8000, Random9000, Random10000
         long fileSize = 300; // Cloudlet file size (MB)
         long outputSize = 300; // Cloudlet file size (MB)
         int pesNumber = 1; // Cloudlet CPU needed to process
@@ -152,13 +152,10 @@ public class CloudsimCSA {
         Cloudlet[] cloudlet = new Cloudlet[ cloudlets ];
 
         for ( int i = 0; i < cloudlets; i++ ) {
-            long finalLen = length + randomSeed.get ( i ).longValue ( );
-
-            // Printing final length of cloudlet and saving it to a file
-//            Log.printLine ( "Cloudlet " + i + " length: " + finalLen );
+            long length = randomSeed.get ( i ).longValue ( );
 
             // Creating the cloudlet with all the parameter listed
-            cloudlet[ i ] = new Cloudlet ( i, finalLen, pesNumber, fileSize, outputSize, utilizationModel, utilizationModel, utilizationModel );
+            cloudlet[ i ] = new Cloudlet ( i, length, pesNumber, fileSize, outputSize, utilizationModel, utilizationModel, utilizationModel );
 
             // setting the owner of these Cloudlets
             cloudlet[ i ].setUserId ( userId );
@@ -172,7 +169,7 @@ public class CloudsimCSA {
      * Creates main() to run this example
      */
     public static void main ( String[] args ) {
-        Log.printLine ( "Starting Cloud Simulation Example..." );
+        Log.printLine ( "Starting Cloud Simulation Crow Search Algorithm ..." );
 
         try {
             // First step: Initialize the CloudSim package. It should be called before creating any entities.
@@ -194,7 +191,7 @@ public class CloudsimCSA {
 //            outputWriter = new BufferedWriter ( new FileWriter ( System.getProperty ( "user.dir" ) + "/allocation/CSA/Random/Simple/SimpleRandomAllocationFromCSA9000.txt" ) ); // RandSimple9000
 //            outputWriter = new BufferedWriter ( new FileWriter ( System.getProperty ( "user.dir" ) + "/allocation/CSA/Random/Simple/SimpleRandomAllocationFromCSA10000.txt" ) ); // RandSimple10000
 //            outputWriter = new BufferedWriter ( new FileWriter ( System.getProperty ( "user.dir" ) + "/allocation/CSA/Random/Stratified/StratifiedRandomAllocationFromCSA1000.txt" ) ); // RandStratified1000
-//            outputWriter = new BufferedWriter ( new FileWriter ( System.getProperty ( "user.dir" ) + "/allocation/CSA/Random/Stratified/StratifiedRandomAllocationFromCSA2000.txt" ) ); // RandStratified2000
+            outputWriter = new BufferedWriter ( new FileWriter ( System.getProperty ( "user.dir" ) + "/allocation/CSA/Random/Stratified/StratifiedRandomAllocationFromCSA2000.txt" ) ); // RandStratified2000
 //            outputWriter = new BufferedWriter ( new FileWriter ( System.getProperty ( "user.dir" ) + "/allocation/CSA/Random/Stratified/StratifiedRandomAllocationFromCSA3000.txt" ) ); // RandStratified3000
 //            outputWriter = new BufferedWriter ( new FileWriter ( System.getProperty ( "user.dir" ) + "/allocation/CSA/Random/Stratified/StratifiedRandomAllocationFromCSA4000.txt" ) ); // RandStratified4000
 //            outputWriter = new BufferedWriter ( new FileWriter ( System.getProperty ( "user.dir" ) + "/allocation/CSA/Random/Stratified/StratifiedRandomAllocationFromCSA5000.txt" ) ); // RandStratified5000
@@ -203,12 +200,12 @@ public class CloudsimCSA {
 //            outputWriter = new BufferedWriter ( new FileWriter ( System.getProperty ( "user.dir" ) + "/allocation/CSA/Random/Stratified/StratifiedRandomAllocationFromCSA8000.txt" ) ); // RandStratified8000
 //            outputWriter = new BufferedWriter ( new FileWriter ( System.getProperty ( "user.dir" ) + "/allocation/CSA/Random/Stratified/StratifiedRandomAllocationFromCSA9000.txt" ) ); // RandStratified9000
 //            outputWriter = new BufferedWriter ( new FileWriter ( System.getProperty ( "user.dir" ) + "/allocation/CSA/Random/Stratified/StratifiedRandomAllocationFromCSA10000.txt" ) ); // RandStratified10000
-            outputWriter = new BufferedWriter ( new FileWriter ( System.getProperty ( "user.dir" ) + "/allocation/CSA/Random/Stratified/StratifiedRandomAllocationFromCSATest100.txt" ) ); // RandStratified10000
+//            outputWriter = new BufferedWriter ( new FileWriter ( System.getProperty ( "user.dir" ) + "/allocation/CSA/Random/Stratified/StratifiedRandomAllocationFromCSATest100.txt" ) ); // RandStratifiedTest100
 
             int vmNumber = 54; // The number of VMs created
 //            int cloudletNumber = 7395; // The number of Tasks created SDSC
 //            int cloudletNumber = 1000; // The number of Tasks created RandSimple1000, RandStratified1000
-//            int cloudletNumber = 2000; // The number of Tasks created RandSimple2000, RandStratified2000
+            int cloudletNumber = 2000; // The number of Tasks created RandSimple2000, RandStratified2000
 //            int cloudletNumber = 3000; // The number of Tasks created RandSimple3000, RandStratified3000
 //            int cloudletNumber = 4000; // The number of Tasks created RandSimple4000, RandStratified4000
 //            int cloudletNumber = 5000; // The number of Tasks created RandSimple5000, RandStratified5000
@@ -217,7 +214,7 @@ public class CloudsimCSA {
 //            int cloudletNumber = 8000; // The number of Tasks created RandSimple8000, RandStratified8000
 //            int cloudletNumber = 9000; // The number of Tasks created RandSimple9000, RandStratified9000
 //            int cloudletNumber = 10000; // The number of Tasks created RandSimple10000, RandStratified10000
-            int cloudletNumber = 100; // The number of Tasks created RandSimpleTest100, RandStratifiedTest100
+//            int cloudletNumber = 100; // The number of Tasks created RandSimpleTest100, RandStratifiedTest100
 
             CloudSim.init ( num_user, calendar, trace_flag ); // Initialize the CloudSim library
 
@@ -253,98 +250,83 @@ public class CloudsimCSA {
             //Sixth step: Use Crow Search Algorithm to create the initial population
 
             // Initializing parameters for Crow Search Algorithm
-            double FL = 0.5; // Flight length
-            double AP = 0.1; // Awareness probability
+            double flightLength = 0.5; // Flight length
+            double awarenessProbability = 0.1; // Awareness probability
             int maxIteration = 20; // Maximum number of iterations
-            int[] AT;
-            double[] CT;
+            int[] allocatedTasks;
+            double makespan;
 
             // Define random number generator
             Random rand = new Random ( );
 
             CSA csa = new CSA ( );
-//            csa.allocateTasksToVm ( vmNumber, cloudletNumber, cloudletList, vmlist );
             csa.randomAllocateTasksToVm ( vmNumber, cloudletNumber, cloudletList, vmlist );
 
-            AT = csa.getAT ( );
-            CT = csa.getCT ( );
-
-            int[] TAT = new int[ cloudletNumber ];
-
+            allocatedTasks = csa.getAllocatedTasks ( );
+            makespan = csa.getMakespan ( );
 
 //            for ( int i = 0; i < cloudletNumber; i++ ) {
-//                broker.bindCloudletToVm ( cloudletList.get ( i ).getCloudletId ( ), vmlist.get ( AT[ i ] ).getId ( ) );
-//            }
-
-//            for ( int i = 0; i < cloudletNumber; i++ ) {
-//                System.out.print ( AT[ i ] + " " );
+//                System.out.print ( allocatedTasks[ i ] + " " );
 //            }
 //            System.out.println ( );
+//            System.out.println ( "makespan: " + makespan );
+
+            for ( int i = 0; i < cloudletNumber; i++ ) {
+                outputWriter.write ( Integer.toString ( allocatedTasks[ i ] ) );
+                outputWriter.newLine ( );
+            }
+
+            outputWriter.flush ( );
+            outputWriter.close ( );
 
             while ( maxIteration > 0 ) {
                 for ( int i = 0; i < cloudletNumber; i++ ) {
                     // Random select Task (to follow)
-                    int Tj = rand.nextInt ( cloudletNumber );
-                    int VMx;
+                    int taskToFollow = rand.nextInt ( cloudletNumber );
+                    int vmToAssign;
 
                     // Initialize ri and rj
                     double ri = rand.nextDouble ( );
                     double rj = rand.nextDouble ( );
 
-                    // Case 1: If rj > AP, then VMx = ATi + ri * FL * (ATj - ATi)
-                    if ( rj >= AP ) {
-                        VMx = ( int ) ( AT[ i ] + ri * FL * ( AT[ Tj ] - AT[ i ] ) );
-//                        System.out.println ( "Case 1 - VMx: " + VMx );
+                    // Case 1: If rj > awarenessProbability, then vmToAssign = ATi + ri * flightLength * (ATj - ATi)
+                    if ( rj >= awarenessProbability ) {
+                        vmToAssign = ( int ) ( allocatedTasks[ i ] + ri * flightLength * ( allocatedTasks[ taskToFollow ] - allocatedTasks[ i ] ) );
                     }
 
-                    // Case 2: If rj <= AP, then VMx = rand(0, vmNumber)
+                    // Case 2: If rj <= awarenessProbability, then vmToAssign = rand(0, vmNumber)
                     else {
-                        VMx = rand.nextInt ( vmNumber );
-//                        System.out.println ( "Case 2 - VMx: " + VMx );
+                        vmToAssign = rand.nextInt ( vmNumber );
                     }
 
-                    // Calculate ET, ER, CompletionTime, newCT value for Ti in VMx
-                    double ET, ER, CompletionTime, newCT;
+                    // Calculate Fitness Function
+                    int[] tempAT = allocatedTasks.clone ( );
+                    tempAT[ i ] = vmToAssign;
 
-                    ET = cloudletList.get ( i ).getCloudletLength ( ) / ( vmlist.get ( VMx ).getMips ( ) * vmlist.get ( VMx ).getNumberOfPes ( ) );
-                    ER = ( double ) cloudletList.get ( i ).getCloudletFileSize ( ) / vmlist.get ( VMx ).getBw ( );
-                    CompletionTime = ET + ER;
-                    newCT = CompletionTime;
-//                    System.out.println ( "New CT value: " + newCT );
-//                    System.out.println ( "CT value: " + CT[ i ] );
+                    double newMakespan = calculateFitness ( cloudletList, vmlist, tempAT );
 
-                    // Feasibility check 1
-                    if ( newCT < CT[ i ] ) {
-                        TAT[ i ] = VMx;
-//                        System.out.println ( "Feasibility check 1 - TAT value: " + TAT[ i ] );
-                    }
-                    // Feasibility check 2
-                    else {
-                        TAT[ i ] = AT[ i ];
-//                        System.out.println ( "Feasibility check 2 - TAT value: " + TAT[ i ] );
+                    // Feasibility check
+                    if ( newMakespan < makespan ) {
+                        makespan = newMakespan;
+                        allocatedTasks = tempAT;
                     }
                 }
                 maxIteration--;
             }
 
 //            for ( int i = 0; i < cloudletNumber; i++ ) {
-//                System.out.print ( TAT[ i ] + " " );
+//                System.out.print ( allocatedTasks[ i ] + " " );
+//
 //            }
 //            System.out.println ( );
+//            System.out.println ( "makespan: " + makespan );
 
-            int[] assignedVMID = new int[ cloudletNumber ];
             for ( int i = 0; i < cloudletNumber; i++ ) {
-                broker.bindCloudletToVm ( cloudletList.get ( i ).getCloudletId ( ), vmlist.get ( TAT[ i ] ).getId ( ) );
-                assignedVMID[ i ] = vmlist.get ( TAT[ i ] ).getId ( );
-                outputWriter.write ( Long.toString ( assignedVMID[ i ] ) );
-                outputWriter.newLine ( );
+                broker.bindCloudletToVm ( cloudletList.get ( i ).getCloudletId ( ), vmlist.get ( allocatedTasks[ i ] ).getId ( ) );
             }
 
             //Seventh step: Starts the simulation
             CloudSim.startSimulation ( );
-
-            outputWriter.flush ( );
-            outputWriter.close ( );
 
             //Final step: Print results when simulation is over
             List<Cloudlet> newList = broker.getCloudletReceivedList ( );
@@ -353,7 +335,7 @@ public class CloudsimCSA {
 
             printCloudletList ( newList );
 
-            Log.printLine ( "Cloud Simulation Example finished!" );
+            Log.printLine ( "Cloud Simulation Crow Search Algorithm finished!" );
         } catch (Exception e) {
             e.printStackTrace ( );
             Log.printLine ( "The simulation has been terminated due to an unexpected error" );
@@ -603,7 +585,7 @@ public class CloudsimCSA {
 //        PrintStream o = new PrintStream ( new File ( System.getProperty ( "user.dir" ) + "/output/CSA/SimpleRandomResult9000.txt" ) ); // RandSimple9000
 //        PrintStream o = new PrintStream ( new File ( System.getProperty ( "user.dir" ) + "/output/CSA/SimpleRandomResult10000.txt" ) ); // RandSimple10000
 //        PrintStream o = new PrintStream ( new File ( System.getProperty ( "user.dir" ) + "/output/CSA/StratifiedRandomResult1000.txt" ) ); // RandStratified1000
-//        PrintStream o = new PrintStream ( new File ( System.getProperty ( "user.dir" ) + "/output/CSA/StratifiedRandomResult2000.txt" ) ); // RandStratified2000
+        PrintStream o = new PrintStream ( new File ( System.getProperty ( "user.dir" ) + "/output/CSA/StratifiedRandomResult2000.txt" ) ); // RandStratified2000
 //        PrintStream o = new PrintStream ( new File ( System.getProperty ( "user.dir" ) + "/output/CSA/StratifiedRandomResult3000.txt" ) ); // RandStratified3000
 //        PrintStream o = new PrintStream ( new File ( System.getProperty ( "user.dir" ) + "/output/CSA/StratifiedRandomResult4000.txt" ) ); // RandStratified4000
 //        PrintStream o = new PrintStream ( new File ( System.getProperty ( "user.dir" ) + "/output/CSA/StratifiedRandomResult5000.txt" ) ); // RandStratified5000
@@ -612,9 +594,8 @@ public class CloudsimCSA {
 //        PrintStream o = new PrintStream ( new File ( System.getProperty ( "user.dir" ) + "/output/CSA/StratifiedRandomResult8000.txt" ) ); // RandStratified8000
 //        PrintStream o = new PrintStream ( new File ( System.getProperty ( "user.dir" ) + "/output/CSA/StratifiedRandomResult9000.txt" ) ); // RandStratified9000
 //        PrintStream o = new PrintStream ( new File ( System.getProperty ( "user.dir" ) + "/output/CSA/StratifiedRandomResult10000.txt" ) ); // RandStratified10000
-        PrintStream o = new PrintStream ( new File ( System.getProperty ( "user.dir" ) + "/output/CSA/StratifiedRandomResultTest100.txt" ) ); // RandStratified10000
+//        PrintStream o = new PrintStream ( new File ( System.getProperty ( "user.dir" ) + "/output/CSA/StratifiedRandomResultTest100.txt" ) ); // RandStratifiedTest100
         System.setOut ( o );
-        System.out.println ( "========== OUTPUT ==========" );
         System.out.println ( "TotalCPUTime : " + CPUTimeSum );
         System.out.println ( "TotalWaitTime : " + waitTimeSum );
         System.out.println ( "TotalCloudletsFinished : " + totalValues );
