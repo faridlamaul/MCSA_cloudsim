@@ -10,8 +10,6 @@
       <change beforePath="$PROJECT_DIR$/allocation/CSAOBL/Random/Stratified/StratifiedRandomAllocationFromCSA2000.txt" beforeDir="false" afterPath="$PROJECT_DIR$/allocation/CSAOBL/Random/Stratified/StratifiedRandomAllocationFromCSA2000.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/output/CSA/StratifiedRandomResult2000.txt" beforeDir="false" afterPath="$PROJECT_DIR$/output/CSA/StratifiedRandomResult2000.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/output/CSAOBL/StratifiedRandomResult2000.txt" beforeDir="false" afterPath="$PROJECT_DIR$/output/CSAOBL/StratifiedRandomResult2000.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Simulation/CloudsimCSA.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Simulation/CloudsimCSA.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Simulation/CloudsimCSAOBL.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Simulation/CloudsimCSAOBL.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
