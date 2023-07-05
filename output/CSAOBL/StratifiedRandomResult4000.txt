@@ -1,0 +1,14 @@
+TotalCPUTime : 1968516.0
+TotalWaitTime : 1.3840533E7
+TotalCloudletsFinished : 4000
+AverageCloudletsFinished : 492.129
+Average StartTime: 4.8984
+Average Execution Time: 5.50125
+Average FinishTime: 10.39965
+Average Waiting time: 7.44525
+Throughput: 0.09557808012310456
+Makespan: 41850.6
+Imbalance Degree: 44.695598105374806
+Total Scheduling Length: 1.38823836E7
+Resouce Utilization: 87.10508332019134
+Total Energy Consumption: 227.01 kWh
