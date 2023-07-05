@@ -6,10 +6,16 @@
   <component name="ChangeListManager">
     <list default="true" id="5ee48a43-be73-4eaf-9dbb-b6fd432fd18c" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/allocation/CSA/Random/Stratified/StratifiedRandomAllocationFromCSA1000.txt" beforeDir="false" afterPath="$PROJECT_DIR$/allocation/CSA/Random/Stratified/StratifiedRandomAllocationFromCSA1000.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/allocation/CSA/Random/Stratified/StratifiedRandomAllocationFromCSA2000.txt" beforeDir="false" afterPath="$PROJECT_DIR$/allocation/CSA/Random/Stratified/StratifiedRandomAllocationFromCSA2000.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/allocation/CSAOBL/Random/Stratified/StratifiedRandomAllocationFromCSA1000.txt" beforeDir="false" afterPath="$PROJECT_DIR$/allocation/CSAOBL/Random/Stratified/StratifiedRandomAllocationFromCSA1000.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/allocation/CSAOBL/Random/Stratified/StratifiedRandomAllocationFromCSA2000.txt" beforeDir="false" afterPath="$PROJECT_DIR$/allocation/CSAOBL/Random/Stratified/StratifiedRandomAllocationFromCSA2000.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/output/CSA/StratifiedRandomResult1000.txt" beforeDir="false" afterPath="$PROJECT_DIR$/output/CSA/StratifiedRandomResult1000.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/output/CSA/StratifiedRandomResult2000.txt" beforeDir="false" afterPath="$PROJECT_DIR$/output/CSA/StratifiedRandomResult2000.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/output/CSAOBL/StratifiedRandomResult1000.txt" beforeDir="false" afterPath="$PROJECT_DIR$/output/CSAOBL/StratifiedRandomResult1000.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/output/CSAOBL/StratifiedRandomResult2000.txt" beforeDir="false" afterPath="$PROJECT_DIR$/output/CSAOBL/StratifiedRandomResult2000.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Simulation/CloudsimCSA.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Simulation/CloudsimCSA.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Simulation/CloudsimCSAOBL.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Simulation/CloudsimCSAOBL.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -37,40 +43,30 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
-    &quot;last_opened_file_path&quot;: &quot;/Users/mac/Library/CloudStorage/OneDrive-InstitutTeknologiSepuluhNopember/2023 Bimbingan TA Henning/Topik Komputasi Awan/Ahmad Lamaul Farid/Github/MCSA_cloudsim/data/CSAOBL/Random/Simple&quot;,
-    &quot;project.structure.last.edited&quot;: &quot;Libraries&quot;,
-    &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
-    &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "last_opened_file_path": "/Users/mac/Library/CloudStorage/OneDrive-InstitutTeknologiSepuluhNopember/2023 Bimbingan TA Henning/Topik Komputasi Awan/Ahmad Lamaul Farid/Github/MCSA_cloudsim/output/CSAOBL",
+    "project.structure.last.edited": "Libraries",
+    "project.structure.proportion": "0.15",
+    "project.structure.side.proportion": "0.2"
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/output/CSAOBL" />
+      <recent name="$PROJECT_DIR$/output/CSA" />
+      <recent name="$PROJECT_DIR$/allocation/CSAOBL/Random/Stratified" />
+      <recent name="$PROJECT_DIR$/allocation/CSA/Random/Stratified" />
       <recent name="$PROJECT_DIR$/data/CSAOBL/Random/Simple" />
-      <recent name="$PROJECT_DIR$/data/CSAOBL/SDSC" />
-      <recent name="$PROJECT_DIR$/allocation/CSAOBL" />
-      <recent name="$PROJECT_DIR$/data/CSA/SDSC" />
-      <recent name="$PROJECT_DIR$/data/CSA/Random/Simple" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/allocation/CSA" />
       <recent name="$PROJECT_DIR$/data/CSA/SDSC" />
       <recent name="$PROJECT_DIR$/data/CSA/Random/Stratified" />
     </key>
-  </component>
-  <component name="RunManager">
-    <configuration name="CloudSimCSA - Debug" type="Application" factoryName="Application">
-      <output_file path="$PROJECT_DIR$/debug/console/output/logs.txt" is_save="true" />
-      <option name="MAIN_CLASS_NAME" value="Simulation.CloudsimCSA" />
-      <module name="MCSA_cloudsim" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">

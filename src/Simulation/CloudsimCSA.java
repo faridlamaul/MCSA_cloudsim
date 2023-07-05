@@ -261,16 +261,11 @@ public class CloudsimCSA {
             Random rand = new Random ( );
 
             CSA csa = new CSA ( );
+            System.out.println ( "CSA Initialize Allocation Started!" );
             csa.randomAllocateTasksToVm ( vmNumber, cloudletNumber, cloudletList, vmlist );
 
             allocatedTasks = csa.getAllocatedTasks ( );
             makespan = csa.getMakespan ( );
-
-//            for ( int i = 0; i < cloudletNumber; i++ ) {
-//                System.out.print ( allocatedTasks[ i ] + " " );
-//            }
-//            System.out.println ( );
-//            System.out.println ( "makespan: " + makespan );
 
             for ( int i = 0; i < cloudletNumber; i++ ) {
                 outputWriter.write ( Integer.toString ( allocatedTasks[ i ] ) );
@@ -280,7 +275,10 @@ public class CloudsimCSA {
             outputWriter.flush ( );
             outputWriter.close ( );
 
+            System.out.println ( "CSA Initialize Allocation Finished!" );
+            System.out.println ( "CSA Iteration Started!" );
             while ( maxIteration > 0 ) {
+                System.out.println ( "Running CSA Iteration: " + (21 - maxIteration) );
                 for ( int i = 0; i < cloudletNumber; i++ ) {
                     // Random select Task (to follow)
                     int taskToFollow = rand.nextInt ( cloudletNumber );
@@ -304,9 +302,11 @@ public class CloudsimCSA {
                     int[] tempAT = allocatedTasks.clone ( );
                     tempAT[ i ] = vmToAssign;
 
+                    System.out.println ( "Calculate fitness function Iteration: " + (21 - maxIteration) );
                     double newMakespan = calculateFitness ( cloudletList, vmlist, tempAT );
 
                     // Feasibility check
+                    System.out.println ( "Feasibility check Iteration: " + (21 - maxIteration) );
                     if ( newMakespan < makespan ) {
                         makespan = newMakespan;
                         allocatedTasks = tempAT;
@@ -315,12 +315,7 @@ public class CloudsimCSA {
                 maxIteration--;
             }
 
-//            for ( int i = 0; i < cloudletNumber; i++ ) {
-//                System.out.print ( allocatedTasks[ i ] + " " );
-//
-//            }
-//            System.out.println ( );
-//            System.out.println ( "makespan: " + makespan );
+            System.out.println ( "CSA Iteration Finished!" );
 
             for ( int i = 0; i < cloudletNumber; i++ ) {
                 broker.bindCloudletToVm ( cloudletList.get ( i ).getCloudletId ( ), vmlist.get ( allocatedTasks[ i ] ).getId ( ) );
@@ -343,7 +338,7 @@ public class CloudsimCSA {
         }
         long endTime   = System.nanoTime();
         long totalTime = endTime - startTime;
-        Log.printLine ( "Total Time to Run Program : " + totalTime/1_000_000_000 + " seconds" );
+        System.out.println ( "Total Time to Run Program : " + totalTime/1_000_000_000 + " seconds" );
     }
 
     private static PowerDatacenter createDatacenter ( String name, int hostId ) {
