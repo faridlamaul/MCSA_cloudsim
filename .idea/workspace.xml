@@ -7,13 +7,29 @@
     <list default="true" id="5ee48a43-be73-4eaf-9dbb-b6fd432fd18c" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/allocation/CSA/Random/Stratified/StratifiedRandomAllocationFromCSA1000.txt" beforeDir="false" afterPath="$PROJECT_DIR$/allocation/CSA/Random/Stratified/StratifiedRandomAllocationFromCSA1000.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/allocation/CSA/Random/Stratified/StratifiedRandomAllocationFromCSA2000.txt" beforeDir="false" afterPath="$PROJECT_DIR$/allocation/CSA/Random/Stratified/StratifiedRandomAllocationFromCSA2000.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/allocation/CSA/Random/Stratified/StratifiedRandomAllocationFromCSA10000.txt" beforeDir="false" afterPath="$PROJECT_DIR$/allocation/CSA/Random/Stratified/StratifiedRandomAllocationFromCSA10000.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/allocation/CSA/Random/Stratified/StratifiedRandomAllocationFromCSA3000.txt" beforeDir="false" afterPath="$PROJECT_DIR$/allocation/CSA/Random/Stratified/StratifiedRandomAllocationFromCSA3000.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/allocation/CSA/Random/Stratified/StratifiedRandomAllocationFromCSA4000.txt" beforeDir="false" afterPath="$PROJECT_DIR$/allocation/CSA/Random/Stratified/StratifiedRandomAllocationFromCSA4000.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/allocation/CSA/Random/Stratified/StratifiedRandomAllocationFromCSA5000.txt" beforeDir="false" afterPath="$PROJECT_DIR$/allocation/CSA/Random/Stratified/StratifiedRandomAllocationFromCSA5000.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/allocation/CSA/Random/Stratified/StratifiedRandomAllocationFromCSA9000.txt" beforeDir="false" afterPath="$PROJECT_DIR$/allocation/CSA/Random/Stratified/StratifiedRandomAllocationFromCSA9000.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/allocation/CSAOBL/Random/Stratified/StratifiedRandomAllocationFromCSA1000.txt" beforeDir="false" afterPath="$PROJECT_DIR$/allocation/CSAOBL/Random/Stratified/StratifiedRandomAllocationFromCSA1000.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/allocation/CSAOBL/Random/Stratified/StratifiedRandomAllocationFromCSA2000.txt" beforeDir="false" afterPath="$PROJECT_DIR$/allocation/CSAOBL/Random/Stratified/StratifiedRandomAllocationFromCSA2000.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/allocation/CSAOBL/Random/Stratified/StratifiedRandomAllocationFromCSA10000.txt" beforeDir="false" afterPath="$PROJECT_DIR$/allocation/CSAOBL/Random/Stratified/StratifiedRandomAllocationFromCSA10000.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/allocation/CSAOBL/Random/Stratified/StratifiedRandomAllocationFromCSA3000.txt" beforeDir="false" afterPath="$PROJECT_DIR$/allocation/CSAOBL/Random/Stratified/StratifiedRandomAllocationFromCSA3000.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/allocation/CSAOBL/Random/Stratified/StratifiedRandomAllocationFromCSA4000.txt" beforeDir="false" afterPath="$PROJECT_DIR$/allocation/CSAOBL/Random/Stratified/StratifiedRandomAllocationFromCSA4000.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/allocation/CSAOBL/Random/Stratified/StratifiedRandomAllocationFromCSA5000.txt" beforeDir="false" afterPath="$PROJECT_DIR$/allocation/CSAOBL/Random/Stratified/StratifiedRandomAllocationFromCSA5000.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/allocation/CSAOBL/Random/Stratified/StratifiedRandomAllocationFromCSA9000.txt" beforeDir="false" afterPath="$PROJECT_DIR$/allocation/CSAOBL/Random/Stratified/StratifiedRandomAllocationFromCSA9000.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/output/CSA/StratifiedRandomResult1000.txt" beforeDir="false" afterPath="$PROJECT_DIR$/output/CSA/StratifiedRandomResult1000.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/output/CSA/StratifiedRandomResult2000.txt" beforeDir="false" afterPath="$PROJECT_DIR$/output/CSA/StratifiedRandomResult2000.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/output/CSA/StratifiedRandomResult10000.txt" beforeDir="false" afterPath="$PROJECT_DIR$/output/CSA/StratifiedRandomResult10000.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/output/CSA/StratifiedRandomResult3000.txt" beforeDir="false" afterPath="$PROJECT_DIR$/output/CSA/StratifiedRandomResult3000.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/output/CSA/StratifiedRandomResult4000.txt" beforeDir="false" afterPath="$PROJECT_DIR$/output/CSA/StratifiedRandomResult4000.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/output/CSA/StratifiedRandomResult5000.txt" beforeDir="false" afterPath="$PROJECT_DIR$/output/CSA/StratifiedRandomResult5000.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/output/CSA/StratifiedRandomResult9000.txt" beforeDir="false" afterPath="$PROJECT_DIR$/output/CSA/StratifiedRandomResult9000.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/output/CSAOBL/StratifiedRandomResult1000.txt" beforeDir="false" afterPath="$PROJECT_DIR$/output/CSAOBL/StratifiedRandomResult1000.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/output/CSAOBL/StratifiedRandomResult2000.txt" beforeDir="false" afterPath="$PROJECT_DIR$/output/CSAOBL/StratifiedRandomResult2000.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/output/CSAOBL/StratifiedRandomResult10000.txt" beforeDir="false" afterPath="$PROJECT_DIR$/output/CSAOBL/StratifiedRandomResult10000.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/output/CSAOBL/StratifiedRandomResult3000.txt" beforeDir="false" afterPath="$PROJECT_DIR$/output/CSAOBL/StratifiedRandomResult3000.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/output/CSAOBL/StratifiedRandomResult4000.txt" beforeDir="false" afterPath="$PROJECT_DIR$/output/CSAOBL/StratifiedRandomResult4000.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/output/CSAOBL/StratifiedRandomResult5000.txt" beforeDir="false" afterPath="$PROJECT_DIR$/output/CSAOBL/StratifiedRandomResult5000.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/output/CSAOBL/StratifiedRandomResult9000.txt" beforeDir="false" afterPath="$PROJECT_DIR$/output/CSAOBL/StratifiedRandomResult9000.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Simulation/CloudsimCSA.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Simulation/CloudsimCSA.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Simulation/CloudsimCSAOBL.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Simulation/CloudsimCSAOBL.java" afterDir="false" />
     </list>
@@ -63,6 +79,7 @@
       <recent name="$PROJECT_DIR$/data/CSAOBL/Random/Simple" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/output/CSAOBL" />
       <recent name="$PROJECT_DIR$/allocation/CSA" />
       <recent name="$PROJECT_DIR$/data/CSA/SDSC" />
       <recent name="$PROJECT_DIR$/data/CSA/Random/Stratified" />

@@ -83,8 +83,8 @@ public class CloudsimCSAOBL {
 //        Log.printLine ( System.getProperty ( "user.dir" ) + "/data/CSAOBL/Random/Simple/RandSimple8000.txt" );
 //        Log.printLine ( System.getProperty ( "user.dir" ) + "/data/CSAOBL/Random/Simple/RandSimple9000.txt" );
 //        Log.printLine ( System.getProperty ( "user.dir" ) + "/data/CSAOBL/Random/Simple/RandSimple10000.txt" );
-//        Log.printLine ( System.getProperty ( "user.dir" ) + "/data/CSAOBL/Random/Stratified/RandStratified1000.txt" );
-        Log.printLine ( System.getProperty ( "user.dir" ) + "/data/CSAOBL/Random/Stratified/RandStratified2000.txt" );
+        Log.printLine ( System.getProperty ( "user.dir" ) + "/data/CSAOBL/Random/Stratified/RandStratified1000.txt" );
+//        Log.printLine ( System.getProperty ( "user.dir" ) + "/data/CSAOBL/Random/Stratified/RandStratified2000.txt" );
 //        Log.printLine ( System.getProperty ( "user.dir" ) + "/data/CSAOBL/Random/Stratified/RandStratified3000.txt" );
 //        Log.printLine ( System.getProperty ( "user.dir" ) + "/data/CSAOBL/Random/Stratified/RandStratified4000.txt" );
 //        Log.printLine ( System.getProperty ( "user.dir" ) + "/data/CSAOBL/Random/Stratified/RandStratified5000.txt" );
@@ -109,8 +109,8 @@ public class CloudsimCSAOBL {
 //            File fobj = new File ( System.getProperty ( "user.dir" ) + "/data/CSAOBL/Random/Simple/RandSimple8000.txt" );
 //            File fobj = new File ( System.getProperty ( "user.dir" ) + "/data/CSAOBL/Random/Simple/RandSimple9000.txt" );
 //            File fobj = new File ( System.getProperty ( "user.dir" ) + "/data/CSAOBL/Random/Simple/RandSimple10000.txt" );
-//            File fobj = new File ( System.getProperty ( "user.dir" ) + "/data/CSAOBL/Random/Stratified/RandStratified1000.txt" );
-            File fobj = new File ( System.getProperty ( "user.dir" ) + "/data/CSAOBL/Random/Stratified/RandStratified2000.txt" );
+            File fobj = new File ( System.getProperty ( "user.dir" ) + "/data/CSAOBL/Random/Stratified/RandStratified1000.txt" );
+//            File fobj = new File ( System.getProperty ( "user.dir" ) + "/data/CSAOBL/Random/Stratified/RandStratified2000.txt" );
 //            File fobj = new File ( System.getProperty ( "user.dir" ) + "/data/CSAOBL/Random/Stratified/RandStratified3000.txt" );
 //            File fobj = new File ( System.getProperty ( "user.dir" ) + "/data/CSAOBL/Random/Stratified/RandStratified4000.txt" );
 //            File fobj = new File ( System.getProperty ( "user.dir" ) + "/data/CSAOBL/Random/Stratified/RandStratified5000.txt" );
@@ -150,8 +150,8 @@ public class CloudsimCSAOBL {
 //        Log.printLine ( System.getProperty ( "user.dir" ) + "/allocation/CSA/Random/Simple/SimpleRandomAllocationFromCSA10000.txt" ); // RandSimple10000
 //        Log.printLine ( System.getProperty ( "user.dir" ) + "/allocation/CSA/Random/Simple/SimpleRandomAllocationFromCSA6000.txt" ); // RandSimple6000
 //        Log.printLine ( System.getProperty ( "user.dir" ) + "/allocation/CSA/Random/Simple/SimpleRandomAllocationFromCSA8000.txt" ); // RandSimple8000
-//        Log.printLine ( System.getProperty ( "user.dir" ) + "/allocation/CSA/Random/Stratified/StratifiedRandomAllocationFromCSA1000.txt" ); // RandStratified1000
-        Log.printLine ( System.getProperty ( "user.dir" ) + "/allocation/CSA/Random/Stratified/StratifiedRandomAllocationFromCSA2000.txt" ); // RandStratified2000
+        Log.printLine ( System.getProperty ( "user.dir" ) + "/allocation/CSA/Random/Stratified/StratifiedRandomAllocationFromCSA1000.txt" ); // RandStratified1000
+//        Log.printLine ( System.getProperty ( "user.dir" ) + "/allocation/CSA/Random/Stratified/StratifiedRandomAllocationFromCSA2000.txt" ); // RandStratified2000
 //        Log.printLine ( System.getProperty ( "user.dir" ) + "/allocation/CSA/Random/Stratified/StratifiedRandomAllocationFromCSA3000.txt" ); // RandStratified3000
 //        Log.printLine ( System.getProperty ( "user.dir" ) + "/allocation/CSA/Random/Stratified/StratifiedRandomAllocationFromCSA4000.txt" ); // RandStratified4000
 //        Log.printLine ( System.getProperty ( "user.dir" ) + "/allocation/CSA/Random/Stratified/StratifiedRandomAllocationFromCSA5000.txt" ); // RandStratified5000
@@ -174,8 +174,8 @@ public class CloudsimCSAOBL {
 //            File fobj = new File ( System.getProperty ( "user.dir" ) + "/allocation/CSA/Random/Simple/SimpleRandomAllocationFromCSA10000.txt" ); // RandSimple10000
 //            File fobj = new File ( System.getProperty ( "user.dir" ) + "/allocation/CSA/Random/Simple/SimpleRandomAllocationFromCSA6000.txt" ); // RandSimple6000
 //            File fobj = new File ( System.getProperty ( "user.dir" ) + "/allocation/CSA/Random/Simple/SimpleRandomAllocationFromCSA8000.txt" ); // RandSimple8000
-//            File fobj = new File ( System.getProperty ( "user.dir" ) + "/allocation/CSA/Random/Stratified/StratifiedRandomAllocationFromCSA1000.txt" ); // RandStratified1000
-            File fobj = new File ( System.getProperty ( "user.dir" ) + "/allocation/CSA/Random/Stratified/StratifiedRandomAllocationFromCSA2000.txt" ); // RandStratified2000
+            File fobj = new File ( System.getProperty ( "user.dir" ) + "/allocation/CSA/Random/Stratified/StratifiedRandomAllocationFromCSA1000.txt" ); // RandStratified1000
+//            File fobj = new File ( System.getProperty ( "user.dir" ) + "/allocation/CSA/Random/Stratified/StratifiedRandomAllocationFromCSA2000.txt" ); // RandStratified2000
 //            File fobj = new File ( System.getProperty ( "user.dir" ) + "/allocation/CSA/Random/Stratified/StratifiedRandomAllocationFromCSA3000.txt" ); // RandStratified3000
 //            File fobj = new File ( System.getProperty ( "user.dir" ) + "/allocation/CSA/Random/Stratified/StratifiedRandomAllocationFromCSA4000.txt" ); // RandStratified4000
 //            File fobj = new File ( System.getProperty ( "user.dir" ) + "/allocation/CSA/Random/Stratified/StratifiedRandomAllocationFromCSA5000.txt" ); // RandStratified5000
@@ -233,7 +233,7 @@ public class CloudsimCSAOBL {
      * Creates main() to run this example
      */
     public static void main ( String[] args ) {
-        long startTime = System.nanoTime();
+        long startTime = System.nanoTime ( );
         Log.printLine ( "Starting Cloud Simulation Crow Search Algorithm - Opposition Based Learning ..." );
 
         try {
@@ -255,8 +255,8 @@ public class CloudsimCSAOBL {
 //            outputWriter = new BufferedWriter ( new FileWriter ( System.getProperty ( "user.dir" ) + "/allocation/CSAOBL/Random/Simple/SimpleRandomAllocationFromCSA8000.txt" ) ); // RandSimple8000
 //            outputWriter = new BufferedWriter ( new FileWriter ( System.getProperty ( "user.dir" ) + "/allocation/CSAOBL/Random/Simple/SimpleRandomAllocationFromCSA9000.txt" ) ); // RandSimple9000
 //            outputWriter = new BufferedWriter ( new FileWriter ( System.getProperty ( "user.dir" ) + "/allocation/CSAOBL/Random/Simple/SimpleRandomAllocationFromCSA10000.txt" ) ); // RandSimple10000
-//            outputWriter = new BufferedWriter ( new FileWriter ( System.getProperty ( "user.dir" ) + "/allocation/CSAOBL/Random/Stratified/StratifiedRandomAllocationFromCSA1000.txt" ) ); // RandStratified1000
-            outputWriter = new BufferedWriter ( new FileWriter ( System.getProperty ( "user.dir" ) + "/allocation/CSAOBL/Random/Stratified/StratifiedRandomAllocationFromCSA2000.txt" ) ); // RandStratified2000
+            outputWriter = new BufferedWriter ( new FileWriter ( System.getProperty ( "user.dir" ) + "/allocation/CSAOBL/Random/Stratified/StratifiedRandomAllocationFromCSA1000.txt" ) ); // RandStratified1000
+//            outputWriter = new BufferedWriter ( new FileWriter ( System.getProperty ( "user.dir" ) + "/allocation/CSAOBL/Random/Stratified/StratifiedRandomAllocationFromCSA2000.txt" ) ); // RandStratified2000
 //            outputWriter = new BufferedWriter ( new FileWriter ( System.getProperty ( "user.dir" ) + "/allocation/CSAOBL/Random/Stratified/StratifiedRandomAllocationFromCSA3000.txt" ) ); // RandStratified3000
 //            outputWriter = new BufferedWriter ( new FileWriter ( System.getProperty ( "user.dir" ) + "/allocation/CSAOBL/Random/Stratified/StratifiedRandomAllocationFromCSA4000.txt" ) ); // RandStratified4000
 //            outputWriter = new BufferedWriter ( new FileWriter ( System.getProperty ( "user.dir" ) + "/allocation/CSAOBL/Random/Stratified/StratifiedRandomAllocationFromCSA5000.txt" ) ); // RandStratified5000
@@ -269,8 +269,8 @@ public class CloudsimCSAOBL {
 
             int vmNumber = 54; // The number of VMs created
 //            int cloudletNumber = 7395; // The number of Tasks created SDSC
-//            int cloudletNumber = 1000; // The number of Tasks created RandSimple1000, RandStratified1000
-            int cloudletNumber = 2000; // The number of Tasks created RandSimple2000, RandStratified2000
+            int cloudletNumber = 1000; // The number of Tasks created RandSimple1000, RandStratified1000
+//            int cloudletNumber = 2000; // The number of Tasks created RandSimple2000, RandStratified2000
 //            int cloudletNumber = 3000; // The number of Tasks created RandSimple3000, RandStratified3000
 //            int cloudletNumber = 4000; // The number of Tasks created RandSimple4000, RandStratified4000
 //            int cloudletNumber = 5000; // The number of Tasks created RandSimple5000, RandStratified5000
@@ -344,7 +344,7 @@ public class CloudsimCSAOBL {
             System.out.println ( "CSA - OBL Initialize Allocation Finished!" );
             System.out.println ( "CSA - OBL Iteration Started!" );
             while ( maxIteration > 0 ) {
-                System.out.println ( "Running CSA - OBL Iteration: " + (21 - maxIteration) );
+                System.out.println ( "Running CSA - OBL Iteration: " + ( 21 - maxIteration ) );
                 for ( int i = 0; i < cloudletNumber; i++ ) {
                     // Random select Task (to follow)
                     int taskToFollow = rand.nextInt ( cloudletNumber );
@@ -368,11 +368,11 @@ public class CloudsimCSAOBL {
                     int[] tempAT = allocatedTasks.clone ( );
                     tempAT[ i ] = vmToAssign;
 
-                    System.out.println ( "Calculate fitness function Iteration: " + (21 - maxIteration) );
+                    System.out.println ( "Calculate fitness function Iteration: " + ( 21 - maxIteration ) );
                     double newMakespan = calculateFitness ( cloudletList, vmlist, tempAT );
 
                     // Feasibility check
-                    System.out.println ( "Feasibility check Iteration: " + (21 - maxIteration) );
+                    System.out.println ( "Feasibility check Iteration: " + ( 21 - maxIteration ) );
                     if ( newMakespan < makespan ) {
                         makespan = newMakespan;
                         allocatedTasks = tempAT;
@@ -402,9 +402,9 @@ public class CloudsimCSAOBL {
             e.printStackTrace ( );
             Log.printLine ( "The simulation has been terminated due to an unexpected error" );
         }
-        long endTime   = System.nanoTime();
+        long endTime = System.nanoTime ( );
         long totalTime = endTime - startTime;
-        System.out.println ( "Total Time to Run Program : " + totalTime/1_000_000_000 + " seconds" );
+        System.out.println ( "Total Time to Run Program : " + totalTime / 1_000_000_000 + " seconds" );
     }
 
     private static PowerDatacenter createDatacenter ( String name, int hostId ) {
@@ -569,69 +569,71 @@ public class CloudsimCSAOBL {
 
         // Show the parameters and print them out
         Log.printLine ( );
-        Log.printLine ( "TotalCPUTime : " + CPUTimeSum );
-        Log.printLine ( "TotalWaitTime : " + waitTimeSum );
-        Log.printLine ( "TotalCloudletsFinished : " + totalValues );
+        Log.printLine ( "Total CPU Time : " + CPUTimeSum );
+        Log.printLine ( "Total Wait Time : " + waitTimeSum );
+        Log.printLine ( "Total Cloudlets Finished : " + totalValues );
 
         // Average Cloudlets Finished
-        Log.printLine ( "AverageCloudletsFinished : " + ( CPUTimeSum / totalValues ) );
+        Log.printLine ( "Average Cloudlets Finished : " + ( totalValues / size ) );
 
         // Average Start Time
         double totalStartTime = 0.0;
         for ( int i = 0; i < size; i++ ) {
-            totalStartTime = cloudletList.get ( i ).getExecStartTime ( );
+            totalStartTime += list.get ( i ).getExecStartTime ( );
         }
         double avgStartTime = totalStartTime / size;
-        Log.printLine ( "Average StartTime: " + avgStartTime );
+        Log.printLine ( "Average Start Time: " + avgStartTime );
 
         // Average Execution Time
-        double ExecTime = 0.0;
+        double totalExecTime = 0.0;
         for ( int i = 0; i < size; i++ ) {
-            ExecTime = cloudletList.get ( i ).getActualCPUTime ( );
+            totalExecTime += list.get ( i ).getActualCPUTime ( );
         }
-        double avgExecTime = ExecTime / size;
+        double avgExecTime = totalExecTime / size;
         Log.printLine ( "Average Execution Time: " + avgExecTime );
 
         // Average Finish Time
-        double totalTime = 0.0;
+        double totalFinishTime = 0.0;
         for ( int i = 0; i < size; i++ ) {
-            totalTime = cloudletList.get ( i ).getFinishTime ( );
+            totalFinishTime += cloudletList.get ( i ).getFinishTime ( );
         }
-        double avgTAT = totalTime / size;
-        Log.printLine ( "Average FinishTime: " + avgTAT );
+        double avgFinishTime = totalFinishTime / size;
+        Log.printLine ( "Average FinishTime: " + avgFinishTime );
 
         // Average Waiting Time
-        assert cloudlet != null;
-        double avgWT = cloudlet.getWaitingTime ( ) / size;
-        Log.printLine ( "Average Waiting time: " + avgWT );
+        double totalWaitingTime = 0.0;
+        for ( int i = 0; i < size; i++ ) {
+            totalWaitingTime += cloudletList.get ( i ).getWaitingTime ( );
+        }
+        double avgWaitingTime = totalWaitingTime / size;
+        Log.printLine ( "Average Waiting time: " + avgWaitingTime );
 
         // Throughput
-        double maxFT = 0.0;
+        double maxFinishTime = 0.0;
         for ( int i = 0; i < size; i++ ) {
             double currentFT = cloudletList.get ( i ).getFinishTime ( );
-            if ( currentFT > maxFT ) {
-                maxFT = currentFT;
+            if ( currentFT > maxFinishTime ) {
+                maxFinishTime = currentFT;
             }
         }
-        double throughput = size / maxFT;
+        double throughput = size / maxFinishTime;
         Log.printLine ( "Throughput: " + throughput );
 
         // Makespan
-        double makespan = 0.0;
-        double makespan_total = makespan + cloudlet.getFinishTime ( );
-        Log.printLine ( "Makespan: " + makespan_total );
+        double makespan = cloudlet.getFinishTime ( );
+        Log.printLine ( "Makespan: " + makespan );
 
         // Imbalance Degree
-        double degree_of_imbalance = ( stats.getMax ( ) - stats.getMin ( ) ) / ( CPUTimeSum / totalValues );
-        Log.printLine ( "Imbalance Degree: " + degree_of_imbalance );
+        double imbalanceDegree = ( stats.getMax ( ) - stats.getMin ( ) ) / ( CPUTimeSum / totalValues );
+        Log.printLine ( "Imbalance Degree: " + imbalanceDegree );
 
         // Scheduling Length
-        double scheduling_length = waitTimeSum + makespan_total;
-        Log.printLine ( "Total Scheduling Length: " + scheduling_length );
+        double schedulingLength = waitTimeSum + makespan;
+        Log.printLine ( "Total Scheduling Length: " + schedulingLength );
 
-        // CPU Resource Utilization
-        double resource_utilization = ( CPUTimeSum / ( makespan_total * 54 ) ) * 100;
-        Log.printLine ( "Resouce Utilization: " + resource_utilization );
+        // Resource Utilization
+        double resourceUtilization = ( CPUTimeSum / ( makespan * 54 ) ) * 100;
+        Log.printLine ( "Resouce Utilization: " + resourceUtilization );
 
         // Energy Consumption
         Log.printLine ( String.format ( "Total Energy Consumption: %.2f kWh",
@@ -649,8 +651,8 @@ public class CloudsimCSAOBL {
 //        PrintStream o = new PrintStream ( new File ( System.getProperty ( "user.dir" ) + "/output/CSAOBL/SimpleRandomResult8000.txt" ) ); // RandSimple8000
 //        PrintStream o = new PrintStream ( new File ( System.getProperty ( "user.dir" ) + "/output/CSAOBL/SimpleRandomResult9000.txt" ) ); // RandSimple9000
 //        PrintStream o = new PrintStream ( new File ( System.getProperty ( "user.dir" ) + "/output/CSAOBL/SimpleRandomResult10000.txt" ) ); // RandSimple10000
-//        PrintStream o = new PrintStream ( new File ( System.getProperty ( "user.dir" ) + "/output/CSAOBL/StratifiedRandomResult1000.txt" ) ); // RandStratified1000
-        PrintStream o = new PrintStream ( new File ( System.getProperty ( "user.dir" ) + "/output/CSAOBL/StratifiedRandomResult2000.txt" ) ); // RandStratified2000
+        PrintStream o = new PrintStream ( new File ( System.getProperty ( "user.dir" ) + "/output/CSAOBL/StratifiedRandomResult1000.txt" ) ); // RandStratified1000
+//        PrintStream o = new PrintStream ( new File ( System.getProperty ( "user.dir" ) + "/output/CSAOBL/StratifiedRandomResult2000.txt" ) ); // RandStratified2000
 //        PrintStream o = new PrintStream ( new File ( System.getProperty ( "user.dir" ) + "/output/CSAOBL/StratifiedRandomResult3000.txt" ) ); // RandStratified3000
 //        PrintStream o = new PrintStream ( new File ( System.getProperty ( "user.dir" ) + "/output/CSAOBL/StratifiedRandomResult4000.txt" ) ); // RandStratified4000
 //        PrintStream o = new PrintStream ( new File ( System.getProperty ( "user.dir" ) + "/output/CSAOBL/StratifiedRandomResult5000.txt" ) ); // RandStratified5000
@@ -661,19 +663,19 @@ public class CloudsimCSAOBL {
 //        PrintStream o = new PrintStream ( new File ( System.getProperty ( "user.dir" ) + "/output/CSAOBL/StratifiedRandomResult10000.txt" ) ); // RandStratified10000
 //        PrintStream o = new PrintStream ( new File ( System.getProperty ( "user.dir" ) + "/output/CSAOBL/StratifiedRandomResultTest100.txt" ) ); // RandStratifiedTest100
         System.setOut ( o );
-        System.out.println ( "TotalCPUTime : " + CPUTimeSum );
-        System.out.println ( "TotalWaitTime : " + waitTimeSum );
-        System.out.println ( "TotalCloudletsFinished : " + totalValues );
-        System.out.println ( "AverageCloudletsFinished : " + ( CPUTimeSum / totalValues ) );
+        System.out.println ( "Total CPU Time : " + CPUTimeSum );
+        System.out.println ( "Total Wait Time : " + waitTimeSum );
+        System.out.println ( "Total Cloudlets Finished : " + totalValues );
+        System.out.println ( "Average Cloudlets Finished : " + ( totalValues / size ) );
         System.out.println ( "Average StartTime: " + avgStartTime );
         System.out.println ( "Average Execution Time: " + avgExecTime );
-        System.out.println ( "Average FinishTime: " + avgTAT );
-        System.out.println ( "Average Waiting time: " + avgWT );
+        System.out.println ( "Average Finish Time: " + avgFinishTime );
+        System.out.println ( "Average Waiting time: " + avgWaitingTime );
         System.out.println ( "Throughput: " + throughput );
-        System.out.println ( "Makespan: " + makespan_total );
-        System.out.println ( "Imbalance Degree: " + degree_of_imbalance );
-        System.out.println ( "Total Scheduling Length: " + scheduling_length );
-        System.out.println ( "Resouce Utilization: " + resource_utilization );
+        System.out.println ( "Makespan: " + makespan );
+        System.out.println ( "Imbalance Degree: " + imbalanceDegree );
+        System.out.println ( "Total Scheduling Length: " + schedulingLength );
+        System.out.println ( "Resouce Utilization: " + resourceUtilization );
         System.out.printf ( "Total Energy Consumption: %.2f kWh%n", ( datacenter1.getPower ( ) + datacenter2.getPower ( ) + datacenter3.getPower ( ) + datacenter4.getPower ( ) + datacenter5.getPower ( ) + datacenter6.getPower ( ) ) / ( 3600 * 1000 ) );
 
     }
