@@ -6,21 +6,21 @@ import org.cloudbus.cloudsim.Vm;
 import java.util.List;
 
 public class FitnessFunction {
-    public static double calculateFitness ( List<Cloudlet> cloudletList, List<Vm> vmlist, int[] tempAT ) {
+    public static double calculateFitness ( List<Cloudlet> cloudletList, List<Vm> vmlist, int[] allocatedTasks ) {
         int N = cloudletList.size ( );
         int M = vmlist.size ( );
 
-        double ET, ER;
+        double ExecutionTime, TransmittingTime;
         double[] CompletionTime = new double[ M ];
-        double[] TaskRunTime = new double[ N ];
+        double[] TaskRuntime = new double[ N ];
         double makespan = 0;
 
         for ( int i = 0; i < N; i++ ) {
-            int vmId = tempAT[ i ];
-            ET = cloudletList.get ( i ).getCloudletLength ( ) / ( vmlist.get ( vmId ).getMips ( ) * vmlist.get ( vmId ).getNumberOfPes ( ) );
-            ER = ( double ) cloudletList.get ( i ).getCloudletFileSize ( ) / vmlist.get ( vmId ).getBw ( );
-            TaskRunTime[ i ] = ET + ER;
-            CompletionTime[ vmId ] += TaskRunTime[ i ];
+            int vmId = allocatedTasks[ i ];
+            ExecutionTime = cloudletList.get ( i ).getCloudletLength ( ) / ( vmlist.get ( vmId ).getMips ( ) * vmlist.get ( vmId ).getNumberOfPes ( ) );
+            TransmittingTime = ( double ) cloudletList.get ( i ).getCloudletFileSize ( ) / vmlist.get ( vmId ).getBw ( );
+            TaskRuntime[ i ] = ExecutionTime + TransmittingTime;
+            CompletionTime[ vmId ] += TaskRuntime[ i ];
         }
 
         for ( int i = 0; i < M; i++ ) {

@@ -29,121 +29,108 @@ import org.cloudbus.cloudsim.provisioners.RamProvisionerSimple;
 
 import static Algorithm.FitnessFunction.calculateFitness;
 
-public class CloudsimCSA {
+public class CloudSimCSA {
+    // Set number of task
+    private static final int nTask = 1000;
 
+    // Set dataset directory path
+    private static final String datasetName = "Stratified";
+//    private static final String datasetName = "Simple";
+//    private static final String datasetName = "SDSC";
+
+    // Declare the variables for Datacenter
     private static PowerDatacenter datacenter1, datacenter2, datacenter3, datacenter4, datacenter5, datacenter6;
-    /**
-     * The cloudlet list.
-     */
+
+    // Declare the variables for List of Cloudlet
     private static List<Cloudlet> cloudletList;
 
-    /**
-     * The vmlist.
-     */
+    // Declare the variables for List of VM
     private static List<Vm> vmlist;
 
+    // Method to create VMs
     private static List<Vm> createVM ( int userId, int vms ) {
 
-        //Creates a container to store VMs.
-        //This list is passed to the broker later
-        LinkedList<Vm> list = new LinkedList<Vm> ( );
+        // Creates a container to store VMs. This listOfVM is passed to the broker later
+        LinkedList<Vm> listOfVM = new LinkedList<Vm> ( );
 
-        //VM Parameters
-        long size = 10000; //Image size (MB)
-        int[] ram = {512, 1024, 2048}; //VM memory (MB)
-        int[] mips = {400, 500, 600}; //VM processing power (MIPS)
-        long bw = 1000; //VM bandwith
-        int pesNumber = 1; //Number of cpus
-        String vmm = "Xen"; //VMM name
+        // Defines VM configuration parameters
+        long size = 10000; // Storage (MB)
+        int[] ram = {512, 1024, 2048}; // RAM (MB)
+        int[] mips = {400, 500, 600}; // MIPS per CPU
+        long bw = 1000; // Bandwidth (Mbps)
+        int pesNumber = 1; // Number of CPU cores (Processing Elements, PEs)
+        String vmm = "Xen"; // VMM
 
-        //create VMs
+        // Creates VMs
         Vm[] vm = new Vm[ vms ];
 
+        // Creates VMs with configuration parameters and add them to the listOfVM
         for ( int i = 0; i < vms; i++ ) {
-            //For loop to create a VM with a time shared scheduling policy for cloudlets:
             vm[ i ] = new Vm ( i, userId, mips[ i % 3 ], pesNumber, ram[ i % 3 ], bw, size, vmm, new CloudletSchedulerSpaceShared ( ) );
-            list.add ( vm[ i ] );
+            listOfVM.add ( vm[ i ] );
         }
 
-        return list;
+        return listOfVM;
     }
 
-    private static ArrayList<Double> getSeedValue ( int cloudletnumAllocationTaskToVM ) {
+    // Method to store Cloudlet (Task) Data
+    private static ArrayList<Double> getTaskValue ( int taskNum ) {
 
-        // Creating an arraylist to store Cloudlet Datasets
-        ArrayList<Double> seed = new ArrayList<Double> ( );
-//        Log.printLine ( System.getProperty ( "user.dir" ) + "/data/CSA/SDSC/SDSC.txt" );
-//        Log.printLine ( System.getProperty ( "user.dir" ) + "/data/CSA/Random/Simple/RandSimple1000.txt" );
-//        Log.printLine ( System.getProperty ( "user.dir" ) + "/data/CSA/Random/Simple/RandSimple2000.txt" );
-//        Log.printLine ( System.getProperty ( "user.dir" ) + "/data/CSA/Random/Simple/RandSimple3000.txt" );
-//        Log.printLine ( System.getProperty ( "user.dir" ) + "/data/CSA/Random/Simple/RandSimple4000.txt" );
-//        Log.printLine ( System.getProperty ( "user.dir" ) + "/data/CSA/Random/Simple/RandSimple5000.txt" );
-//        Log.printLine ( System.getProperty ( "user.dir" ) + "/data/CSA/Random/Simple/RandSimple6000.txt" );
-//        Log.printLine ( System.getProperty ( "user.dir" ) + "/data/CSA/Random/Simple/RandSimple7000.txt" );
-//        Log.printLine ( System.getProperty ( "user.dir" ) + "/data/CSA/Random/Simple/RandSimple8000.txt" );
-//        Log.printLine ( System.getProperty ( "user.dir" ) + "/data/CSA/Random/Simple/RandSimple9000.txt" );
-//        Log.printLine ( System.getProperty ( "user.dir" ) + "/data/CSA/Random/Simple/RandSimple10000.txt" );
-        Log.printLine ( System.getProperty ( "user.dir" ) + "/data/CSA/Random/Stratified/RandStratified1000.txt" );
-//        Log.printLine ( System.getProperty ( "user.dir" ) + "/data/CSA/Random/Stratified/RandStratified2000.txt" );
-//        Log.printLine ( System.getProperty ( "user.dir" ) + "/data/CSA/Random/Stratified/RandStratified3000.txt" );
-//        Log.printLine ( System.getProperty ( "user.dir" ) + "/data/CSA/Random/Stratified/RandStratified4000.txt" );
-//        Log.printLine ( System.getProperty ( "user.dir" ) + "/data/CSA/Random/Stratified/RandStratified5000.txt" );
-//        Log.printLine ( System.getProperty ( "user.dir" ) + "/data/CSA/Random/Stratified/RandStratified6000.txt" );
-//        Log.printLine ( System.getProperty ( "user.dir" ) + "/data/CSA/Random/Stratified/RandStratified7000.txt" );
-//        Log.printLine ( System.getProperty ( "user.dir" ) + "/data/CSA/Random/Stratified/RandStratified8000.txt" );
-//        Log.printLine ( System.getProperty ( "user.dir" ) + "/data/CSA/Random/Stratified/RandStratified9000.txt" );
-//        Log.printLine ( System.getProperty ( "user.dir" ) + "/data/CSA/Random/Stratified/RandStratified10000.txt" );
-//        Log.printLine ( System.getProperty ( "user.dir" ) + "/data/CSA/Random/Stratified/RandStratifiedTest100.txt" );
-
+        // Creating listOfTask to store Tasks from the dataset
+        ArrayList<Double> listOfTask = new ArrayList<Double> ( );
 
         try {
-            // Opening and scanning the file
-//            File fobj = new File ( System.getProperty ( "user.dir" ) + "/data/CSA/SDSC/SDSC.txt" );
-//            File fobj = new File ( System.getProperty ( "user.dir" ) + "/data/CSA/Random/Simple/RandSimple1000.txt" );
-//            File fobj = new File ( System.getProperty ( "user.dir" ) + "/data/CSA/Random/Simple/RandSimple2000.txt" );
-//            File fobj = new File ( System.getProperty ( "user.dir" ) + "/data/CSA/Random/Simple/RandSimple3000.txt" );
-//            File fobj = new File ( System.getProperty ( "user.dir" ) + "/data/CSA/Random/Simple/RandSimple4000.txt" );
-//            File fobj = new File ( System.getProperty ( "user.dir" ) + "/data/CSA/Random/Simple/RandSimple5000.txt" );
-//            File fobj = new File ( System.getProperty ( "user.dir" ) + "/data/CSA/Random/Simple/RandSimple6000.txt" );
-//            File fobj = new File ( System.getProperty ( "user.dir" ) + "/data/CSA/Random/Simple/RandSimple7000.txt" );
-//            File fobj = new File ( System.getProperty ( "user.dir" ) + "/data/CSA/Random/Simple/RandSimple8000.txt" );
-//            File fobj = new File ( System.getProperty ( "user.dir" ) + "/data/CSA/Random/Simple/RandSimple9000.txt" );
-//            File fobj = new File ( System.getProperty ( "user.dir" ) + "/data/CSA/Random/Simple/RandSimple10000.txt" );
-            File fobj = new File ( System.getProperty ( "user.dir" ) + "/data/CSA/Random/Stratified/RandStratified1000.txt" );
-//            File fobj = new File ( System.getProperty ( "user.dir" ) + "/data/CSA/Random/Stratified/RandStratified2000.txt" );
-//            File fobj = new File ( System.getProperty ( "user.dir" ) + "/data/CSA/Random/Stratified/RandStratified3000.txt" );
-//            File fobj = new File ( System.getProperty ( "user.dir" ) + "/data/CSA/Random/Stratified/RandStratified4000.txt" );
-//            File fobj = new File ( System.getProperty ( "user.dir" ) + "/data/CSA/Random/Stratified/RandStratified5000.txt" );
-//            File fobj = new File ( System.getProperty ( "user.dir" ) + "/data/CSA/Random/Stratified/RandStratified6000.txt" );
-//            File fobj = new File ( System.getProperty ( "user.dir" ) + "/data/CSA/Random/Stratified/RandStratified7000.txt" );
-//            File fobj = new File ( System.getProperty ( "user.dir" ) + "/data/CSA/Random/Stratified/RandStratified8000.txt" );
-//            File fobj = new File ( System.getProperty ( "user.dir" ) + "/data/CSA/Random/Stratified/RandStratified9000.txt" );
-//            File fobj = new File ( System.getProperty ( "user.dir" ) + "/data/CSA/Random/Stratified/RandStratified10000.txt" );
-//            File fobj = new File ( System.getProperty ( "user.dir" ) + "/data/CSA/Random/Stratified/RandStratifiedTest100.txt" );
-            java.util.Scanner readFile = new java.util.Scanner ( fobj );
+            if ( Objects.equals ( datasetName, "SDSC" ) ) {
+                File fobj = new File ( System.getProperty ( "user.dir" ) + "/data/CSA/SDSC/SDSC" + nTask + ".txt" );
 
-            while ( readFile.hasNextLine ( ) && cloudletnumAllocationTaskToVM > 0 ) {
-                // Adding the file to the arraylist
-                seed.add ( readFile.nextDouble ( ) );
-                cloudletnumAllocationTaskToVM--;
+                Scanner readFile = new java.util.Scanner ( fobj );
+
+                while ( readFile.hasNextLine ( ) && taskNum > 0 ) {
+                    // Adding the data to the listOfTask
+                    listOfTask.add ( readFile.nextDouble ( ) );
+                    taskNum--;
+                }
+                readFile.close ( );
+            } else if ( Objects.equals ( datasetName, "Simple" ) ) {
+                File fobj = new File ( System.getProperty ( "user.dir" ) + "/data/CSA/Random/Simple/RandSimple" + nTask + ".txt" );
+
+                Scanner readFile = new java.util.Scanner ( fobj );
+
+                while ( readFile.hasNextLine ( ) && taskNum > 0 ) {
+                    // Adding the data to the listOfTask
+                    listOfTask.add ( readFile.nextDouble ( ) );
+                    taskNum--;
+                }
+                readFile.close ( );
+            } else {
+                File fobj = new File ( System.getProperty ( "user.dir" ) + "/data/CSA/Random/Stratified/RandStratified" + nTask + ".txt" );
+
+                Scanner readFile = new Scanner ( fobj );
+
+                while ( readFile.hasNextLine ( ) && taskNum > 0 ) {
+                    // Adding the data to the listOfTask
+                    listOfTask.add ( readFile.nextDouble ( ) );
+                    taskNum--;
+                }
+                readFile.close ( );
             }
-            readFile.close ( );
-
         } catch (FileNotFoundException e) {
             e.printStackTrace ( );
         }
 
-        return seed;
+        return listOfTask;
     }
 
+    // Method to create Cloudlet (Task)
     private static List<Cloudlet> createCloudlet ( int userId, int cloudlets ) {
 
-        ArrayList<Double> randomSeed = getSeedValue ( cloudlets );
+        // Creating listOfTask to store Tasks
+        ArrayList<Double> listOfTask = getTaskValue ( cloudlets );
 
-        // Creates a container to store Cloudlets
-        LinkedList<Cloudlet> list = new LinkedList<Cloudlet> ( );
+        // Creates a container to store Cloudlets. This listOfCloudlet is passed to the broker later
+        LinkedList<Cloudlet> listOfCloudlet = new LinkedList<Cloudlet> ( );
 
-        //Cloudlet parameters
+        // Cloudlet properties
         long fileSize = 300; // Cloudlet file size (MB)
         long outputSize = 300; // Cloudlet file size (MB)
         int pesNumber = 1; // Cloudlet CPU needed to process
@@ -152,74 +139,38 @@ public class CloudsimCSA {
         Cloudlet[] cloudlet = new Cloudlet[ cloudlets ];
 
         for ( int i = 0; i < cloudlets; i++ ) {
-            long length = randomSeed.get ( i ).longValue ( );
+            long length = listOfTask.get ( i ).longValue ( );
 
             // Creating the cloudlet with all the parameter listed
             cloudlet[ i ] = new Cloudlet ( i, length, pesNumber, fileSize, outputSize, utilizationModel, utilizationModel, utilizationModel );
 
-            // setting the owner of these Cloudlets
+            // Setting the owner of these Cloudlets
             cloudlet[ i ].setUserId ( userId );
-            list.add ( cloudlet[ i ] );
+            listOfCloudlet.add ( cloudlet[ i ] );
         }
 
-        return list;
+        return listOfCloudlet;
     }
 
-    /**
-     * Creates main() to run this example
-     */
+    // Main method to run the simulation
     public static void main ( String[] args ) {
         long startTime = System.nanoTime ( );
         Log.printLine ( "Starting Cloud Simulation Crow Search Algorithm ..." );
 
         try {
-            // First step: Initialize the CloudSim package. It should be called before creating any entities.
+            // 1. Initialize the CloudSim package. It should be called before creating any entities.
             int num_user = 1;   // Number of grid users
-            Calendar calendar = Calendar.getInstance ( );
+            Calendar calendar = Calendar.getInstance ( ); // Calendar whose fields have been initialized with the current date and time.
             boolean trace_flag = false;  // Mean trace events
             int hostId = 0; // Starting host ID
-            BufferedWriter outputWriter;
-
-//            outputWriter = new BufferedWriter ( new FileWriter ( System.getProperty ( "user.dir" ) + "/allocation/CSA/SDSC/SDSCAllocationFromCSA.txt" ) ); // SDSC
-//            outputWriter = new BufferedWriter ( new FileWriter ( System.getProperty ( "user.dir" ) + "/allocation/CSA/Random/Simple/SimpleRandomAllocationFromCSA1000.txt" ) ); // RandSimple1000
-//            outputWriter = new BufferedWriter ( new FileWriter ( System.getProperty ( "user.dir" ) + "/allocation/CSA/Random/Simple/SimpleRandomAllocationFromCSA2000.txt" ) ); // RandSimple2000
-//            outputWriter = new BufferedWriter ( new FileWriter ( System.getProperty ( "user.dir" ) + "/allocation/CSA/Random/Simple/SimpleRandomAllocationFromCSA3000.txt" ) ); // RandSimple3000
-//            outputWriter = new BufferedWriter ( new FileWriter ( System.getProperty ( "user.dir" ) + "/allocation/CSA/Random/Simple/SimpleRandomAllocationFromCSA4000.txt" ) ); // RandSimple4000
-//            outputWriter = new BufferedWriter ( new FileWriter ( System.getProperty ( "user.dir" ) + "/allocation/CSA/Random/Simple/SimpleRandomAllocationFromCSA5000.txt" ) ); // RandSimple5000
-//            outputWriter = new BufferedWriter ( new FileWriter ( System.getProperty ( "user.dir" ) + "/allocation/CSA/Random/Simple/SimpleRandomAllocationFromCSA6000.txt" ) ); // RandSimple6000
-//            outputWriter = new BufferedWriter ( new FileWriter ( System.getProperty ( "user.dir" ) + "/allocation/CSA/Random/Simple/SimpleRandomAllocationFromCSA7000.txt" ) ); // RandSimple7000
-//            outputWriter = new BufferedWriter ( new FileWriter ( System.getProperty ( "user.dir" ) + "/allocation/CSA/Random/Simple/SimpleRandomAllocationFromCSA8000.txt" ) ); // RandSimple8000
-//            outputWriter = new BufferedWriter ( new FileWriter ( System.getProperty ( "user.dir" ) + "/allocation/CSA/Random/Simple/SimpleRandomAllocationFromCSA9000.txt" ) ); // RandSimple9000
-//            outputWriter = new BufferedWriter ( new FileWriter ( System.getProperty ( "user.dir" ) + "/allocation/CSA/Random/Simple/SimpleRandomAllocationFromCSA10000.txt" ) ); // RandSimple10000
-            outputWriter = new BufferedWriter ( new FileWriter ( System.getProperty ( "user.dir" ) + "/allocation/CSA/Random/Stratified/StratifiedRandomAllocationFromCSA1000.txt" ) ); // RandStratified1000
-//            outputWriter = new BufferedWriter ( new FileWriter ( System.getProperty ( "user.dir" ) + "/allocation/CSA/Random/Stratified/StratifiedRandomAllocationFromCSA2000.txt" ) ); // RandStratified2000
-//            outputWriter = new BufferedWriter ( new FileWriter ( System.getProperty ( "user.dir" ) + "/allocation/CSA/Random/Stratified/StratifiedRandomAllocationFromCSA3000.txt" ) ); // RandStratified3000
-//            outputWriter = new BufferedWriter ( new FileWriter ( System.getProperty ( "user.dir" ) + "/allocation/CSA/Random/Stratified/StratifiedRandomAllocationFromCSA4000.txt" ) ); // RandStratified4000
-//            outputWriter = new BufferedWriter ( new FileWriter ( System.getProperty ( "user.dir" ) + "/allocation/CSA/Random/Stratified/StratifiedRandomAllocationFromCSA5000.txt" ) ); // RandStratified5000
-//            outputWriter = new BufferedWriter ( new FileWriter ( System.getProperty ( "user.dir" ) + "/allocation/CSA/Random/Stratified/StratifiedRandomAllocationFromCSA6000.txt" ) ); // RandStratified6000
-//            outputWriter = new BufferedWriter ( new FileWriter ( System.getProperty ( "user.dir" ) + "/allocation/CSA/Random/Stratified/StratifiedRandomAllocationFromCSA7000.txt" ) ); // RandStratified7000
-//            outputWriter = new BufferedWriter ( new FileWriter ( System.getProperty ( "user.dir" ) + "/allocation/CSA/Random/Stratified/StratifiedRandomAllocationFromCSA8000.txt" ) ); // RandStratified8000
-//            outputWriter = new BufferedWriter ( new FileWriter ( System.getProperty ( "user.dir" ) + "/allocation/CSA/Random/Stratified/StratifiedRandomAllocationFromCSA9000.txt" ) ); // RandStratified9000
-//            outputWriter = new BufferedWriter ( new FileWriter ( System.getProperty ( "user.dir" ) + "/allocation/CSA/Random/Stratified/StratifiedRandomAllocationFromCSA10000.txt" ) ); // RandStratified10000
-//            outputWriter = new BufferedWriter ( new FileWriter ( System.getProperty ( "user.dir" ) + "/allocation/CSA/Random/Stratified/StratifiedRandomAllocationFromCSATest100.txt" ) ); // RandStratifiedTest100
 
             int vmNumber = 54; // The number of VMs created
-//            int cloudletNumber = 7395; // The number of Tasks created SDSC
-            int cloudletNumber = 1000; // The number of Tasks created RandSimple1000, RandStratified1000
-//            int cloudletNumber = 2000; // The number of Tasks created RandSimple2000, RandStratified2000
-//            int cloudletNumber = 3000; // The number of Tasks created RandSimple3000, RandStratified3000
-//            int cloudletNumber = 4000; // The number of Tasks created RandSimple4000, RandStratified4000
-//            int cloudletNumber = 5000; // The number of Tasks created RandSimple5000, RandStratified5000
-//            int cloudletNumber = 6000; // The number of Tasks created RandSimple6000, RandStratified6000
-//            int cloudletNumber = 7000; // The number of Tasks created RandSimple7000, RandStratified7000
-//            int cloudletNumber = 8000; // The number of Tasks created RandSimple8000, RandStratified8000
-//            int cloudletNumber = 9000; // The number of Tasks created RandSimple9000, RandStratified9000
-//            int cloudletNumber = 10000; // The number of Tasks created RandSimple10000, RandStratified10000
-//            int cloudletNumber = 100; // The number of Tasks created RandSimpleTest100, RandStratifiedTest100
+            int cloudletNumber = nTask; // The number of Tasks created
 
             CloudSim.init ( num_user, calendar, trace_flag ); // Initialize the CloudSim library
 
-            //Second step: Create Datacenters. Datacenters are the resource providers in CloudSim. We need at least one of them to run a CloudSim simulation
+            // 2. Create Datacenters. Datacenters are the resource providers in CloudSim.
+            // We need at least one of them to run a CloudSim simulation
             datacenter1 = createDatacenter ( "DataCenter_1", hostId );
             hostId = 3;
             datacenter2 = createDatacenter ( "DataCenter_2", hostId );
@@ -233,74 +184,113 @@ public class CloudsimCSA {
             datacenter6 = createDatacenter ( "DataCenter_6", hostId );
 
 
-            //Third step: Create Broker
+            // 3. Create Broker
             DatacenterBroker broker = createBroker ( );
             assert broker != null;
             int brokerId = broker.getId ( );
 
 
-            //Fourth step: Create VMs and Cloudlets
-            vmlist = createVM ( brokerId, vmNumber ); //Creating vms
-            cloudletList = createCloudlet ( brokerId, cloudletNumber ); // Creating cloudlets
+            // 4. Create VMs and Cloudlets
+            vmlist = createVM ( brokerId, vmNumber ); // Creating VMs
+            cloudletList = createCloudlet ( brokerId, cloudletNumber ); // Creating Cloudlets
 
 
-            //Fifth step: Send VMs and Cloudlets to broker
+            // 5. Send VMs and Cloudlets to Broker
             broker.submitVmList ( vmlist );
             broker.submitCloudletList ( cloudletList );
 
-            //Sixth step: Use Crow Search Algorithm to create the initial population
+            // 6. Use Crow Search Algorithm (CSA) to allocate Cloudlets to VMs
 
-            // Initializing parameters for Crow Search Algorithm
+            // Initializing parameters for CSA (flightLength, awarenessProbability, maxIteration)
             double flightLength = 0.5; // Flight length
             double awarenessProbability = 0.1; // Awareness probability
             int maxIteration = 20; // Maximum number of iterations
+
+            // Define variables to store the allocated tasks and makespan
             int[] allocatedTasks;
             double makespan;
 
-            // Define random number generator
+            // Define variables to store random number
             Random rand = new Random ( );
 
+            // Create an object of CSA class
             CSA csa = new CSA ( );
+
             System.out.println ( "CSA Initialize Allocation Started!" );
+
+            // Generate allocation using CSA
             csa.randomAllocateTasksToVm ( vmNumber, cloudletNumber, cloudletList, vmlist );
 
+            // Get the allocated tasks and makespan
             allocatedTasks = csa.getAllocatedTasks ( );
             makespan = csa.getMakespan ( );
 
-            for ( int i = 0; i < cloudletNumber; i++ ) {
-                outputWriter.write ( Integer.toString ( allocatedTasks[ i ] ) );
-                outputWriter.newLine ( );
-            }
+            // Store the allocated tasks to file
+            BufferedWriter outputWriter;
 
-            outputWriter.flush ( );
-            outputWriter.close ( );
+            if ( Objects.equals ( datasetName, "SDSC" ) ) {
+                outputWriter = new BufferedWriter ( new FileWriter ( System.getProperty ( "user.dir" ) + "/allocation/CSA/SDSC/SDSCAllocationFromCSA" + nTask + ".txt" ) );
+
+                for ( int i = 0; i < cloudletNumber; i++ ) {
+                    outputWriter.write ( Integer.toString ( allocatedTasks[ i ] ) );
+                    outputWriter.newLine ( );
+                }
+
+                outputWriter.flush ( );
+                outputWriter.close ( );
+            } else if ( Objects.equals ( datasetName, "Simple" ) ) {
+                outputWriter = new BufferedWriter ( new FileWriter ( System.getProperty ( "user.dir" ) + "/allocation/CSA/Random/Simple/SimpleRandomAllocationFromCSA" + nTask + ".txt" ) );
+
+                for ( int i = 0; i < cloudletNumber; i++ ) {
+                    outputWriter.write ( Integer.toString ( allocatedTasks[ i ] ) );
+                    outputWriter.newLine ( );
+                }
+
+                outputWriter.flush ( );
+                outputWriter.close ( );
+            } else {
+                outputWriter = new BufferedWriter ( new FileWriter ( System.getProperty ( "user.dir" ) + "/allocation/CSA/Random/Stratified/StratifiedRandomAllocationFromCSA" + nTask + ".txt" ) );
+
+                for ( int i = 0; i < cloudletNumber; i++ ) {
+                    outputWriter.write ( Integer.toString ( allocatedTasks[ i ] ) );
+                    outputWriter.newLine ( );
+                }
+
+                outputWriter.flush ( );
+                outputWriter.close ( );
+            }
 
             System.out.println ( "CSA Initialize Allocation Finished!" );
             System.out.println ( "CSA Iteration Started!" );
+
+            // Running CSA Iteration
             while ( maxIteration > 0 ) {
                 System.out.println ( "Running CSA Iteration: " + ( 21 - maxIteration ) );
                 for ( int i = 0; i < cloudletNumber; i++ ) {
-                    // Random select Task (to follow)
-                    int taskToFollow = rand.nextInt ( cloudletNumber );
-                    int vmToAssign;
 
-                    // Initialize ri and rj
+                    // Select a random task to follow
+                    int taskToFollow = rand.nextInt ( cloudletNumber );
+
+                    // Define a variable to store the alternative VM
+                    int vmAlternative;
+
+                    // Initialize ri and rj (random number between 0 and 1)
                     double ri = rand.nextDouble ( );
                     double rj = rand.nextDouble ( );
 
-                    // Case 1: If rj > awarenessProbability, then vmToAssign = ATi + ri * flightLength * (ATj - ATi)
+                    // Case 1 for CSA
                     if ( rj >= awarenessProbability ) {
-                        vmToAssign = ( int ) ( allocatedTasks[ i ] + ri * flightLength * ( allocatedTasks[ taskToFollow ] - allocatedTasks[ i ] ) );
+                        vmAlternative = ( int ) ( allocatedTasks[ i ] + ri * flightLength * ( allocatedTasks[ taskToFollow ] - allocatedTasks[ i ] ) );
                     }
 
-                    // Case 2: If rj <= awarenessProbability, then vmToAssign = rand(0, vmNumber)
+                    // Case 2 for CSA
                     else {
-                        vmToAssign = rand.nextInt ( vmNumber );
+                        vmAlternative = rand.nextInt ( vmNumber );
                     }
 
                     // Calculate Fitness Function
                     int[] tempAT = allocatedTasks.clone ( );
-                    tempAT[ i ] = vmToAssign;
+                    tempAT[ i ] = vmAlternative;
 
                     System.out.println ( "Calculate fitness function Iteration: " + ( 21 - maxIteration ) );
                     double newMakespan = calculateFitness ( cloudletList, vmlist, tempAT );
@@ -317,14 +307,15 @@ public class CloudsimCSA {
 
             System.out.println ( "CSA Iteration Finished!" );
 
+            // 7. Send the allocated tasks to broker
             for ( int i = 0; i < cloudletNumber; i++ ) {
                 broker.bindCloudletToVm ( cloudletList.get ( i ).getCloudletId ( ), vmlist.get ( allocatedTasks[ i ] ).getId ( ) );
             }
 
-            //Seventh step: Starts the simulation
+            // 8. Starts the simulation
             CloudSim.startSimulation ( );
 
-            //Final step: Print results when simulation is over
+            // 9. Print results when simulation is over
             List<Cloudlet> newList = broker.getCloudletReceivedList ( );
 
             CloudSim.stopSimulation ( );
@@ -336,11 +327,13 @@ public class CloudsimCSA {
             e.printStackTrace ( );
             Log.printLine ( "The simulation has been terminated due to an unexpected error" );
         }
+        // Print the total time taken to run the program
         long endTime = System.nanoTime ( );
         long totalTime = endTime - startTime;
         System.out.println ( "Total Time to Run Program : " + totalTime / 1_000_000_000 + " seconds" );
     }
 
+    // Method to create Datacenter
     private static PowerDatacenter createDatacenter ( String name, int hostId ) {
 
         // Here are the steps needed to create a PowerDatacenter:
@@ -361,7 +354,7 @@ public class CloudsimCSA {
 
 
         // 3. Create PEs and add these into the list.
-        //for a quad-core machine, a list of 4 PEs is required:
+        // for a quad-core machine, a list of 4 PEs is required:
         peList1.add ( new Pe ( 0, new PeProvisionerSimple ( mips1 ) ) ); // need to store Pe id and MIPS Rating, Must be bigger than the VMs
         peList1.add ( new Pe ( 1, new PeProvisionerSimple ( mips1 ) ) );
         peList1.add ( new Pe ( 2, new PeProvisionerSimple ( mips1 ) ) );
@@ -376,12 +369,13 @@ public class CloudsimCSA {
         peList3.add ( new Pe ( 11, new PeProvisionerSimple ( mipsunused ) ) );
 
 
-        //4. Create Hosts with its id and list of PEs and add them to the list of machines
-        int ram = 128000; //Host memory (MB), Must be bigger than the VMs
-        long storage = 1000000; //Host storage (MB)
-        int bw = 10000; //Host bandwith
-        int maxpower = 117; // Host Max Power
-        int staticPowerPercentage = 50; // Host Static Power Percentage
+        // 4. Create Hosts with its id and list of PEs and add them to the list of machines
+        // defines Host configuration parameters
+        int ram = 128000; // RAM (MB), Must be bigger than the VMs
+        long storage = 1000000; // Storage (MB)
+        int bw = 10000; // Bandwith
+        int maxpower = 117; // Max Power
+        int staticPowerPercentage = 50; // Static Power Percentage
 
         hostList.add (
                 new PowerHostUtilizationHistory (
@@ -419,12 +413,12 @@ public class CloudsimCSA {
         // and its price (G$/Pe time unit).
         String arch = "x86";            // System architecture
         String os = "Linux";            // Operating system
-        String vmm = "Xen";                // Name
+        String vmm = "Xen";             // VMM
         double time_zone = 10.0;        // Time zone this resource located
         double cost = 3.0;              // The cost of using processing in this resource
-        double costPerMem = 0.05;        // The cost of using memory in this resource
+        double costPerMem = 0.05;       // The cost of using memory in this resource
         double costPerStorage = 0.1;    // The cost of using storage in this resource
-        double costPerBw = 0.1;            // The cost of using bw in this resource
+        double costPerBw = 0.1;         // The cost of using bw in this resource
         LinkedList<Storage> storageList = new LinkedList<Storage> ( );
 
         DatacenterCharacteristics characteristics = new DatacenterCharacteristics (
@@ -442,10 +436,10 @@ public class CloudsimCSA {
         return datacenter;
     }
 
-
+    // Method to create Datacenter Broker
     private static DatacenterBroker createBroker ( ) {
 
-        DatacenterBroker broker = null;
+        DatacenterBroker broker;
         try {
             broker = new DatacenterBroker ( "Broker" );
         } catch (Exception e) {
@@ -455,25 +449,19 @@ public class CloudsimCSA {
         return broker;
     }
 
-
-    /**
-     * Prints the Cloudlet objects
-     *
-     * @param list list of Cloudlets
-     * @throws FileNotFoundException
-     */
+    //
     private static void printCloudletList ( List<Cloudlet> list ) throws FileNotFoundException {
 
         // Initializing the printed output to zero
         int size = list.size ( );
         Cloudlet cloudlet = null;
 
-        String indent = "    ";
-        Log.printLine ( );
+        // Print output to tabular form
+
+        Formatter formatterOutput = new Formatter ( );
         Log.printLine ( "========== OUTPUT ==========" );
-        Log.printLine ( "Cloudlet ID" + indent + "STATUS" + indent +
-                "Data center ID" + indent + "VM ID" + indent + "Time"
-                + indent + "Start Time" + indent + "Finish Time" + indent + "Waiting Time" );
+        formatterOutput.format ( "%15s %15s %15s %15s %15s %15s %15s %15s\n", "Cloudlet ID", "STATUS", "Data center ID", "VM ID", "Time", "Start Time", "Finish Time", "Waiting Time" );
+        formatterOutput.format ( "%15s %15s %15s %15s %15s %15s %15s %15s\n", "-----------", "-----------", "-----------", "-----------", "-----------", "-----------", "-----------", "-----------" );
 
         double waitTimeSum = 0.0;
         double CPUTimeSum = 0.0;
@@ -485,20 +473,19 @@ public class CloudsimCSA {
         // Printing all the status of the Cloudlets
         for ( int i = 0; i < size; i++ ) {
             cloudlet = list.get ( i );
-            Log.print ( cloudlet.getCloudletId ( ) + indent + indent );
 
             if ( cloudlet.getCloudletStatus ( ) == Cloudlet.SUCCESS ) {
-                Log.print ( "SUCCESS" );
                 CPUTimeSum = CPUTimeSum + cloudlet.getActualCPUTime ( );
                 waitTimeSum = waitTimeSum + cloudlet.getWaitingTime ( );
-                Log.printLine ( indent + indent + indent + ( cloudlet.getResourceId ( ) - 1 ) + indent + indent + indent + cloudlet.getVmId ( ) +
-                        indent + indent + dft.format ( cloudlet.getActualCPUTime ( ) ) + indent + indent + dft.format ( cloudlet.getExecStartTime ( ) ) +
-                        indent + indent + dft.format ( cloudlet.getFinishTime ( ) ) + indent + indent + indent + dft.format ( cloudlet.getWaitingTime ( ) ) );
+
+                formatterOutput.format ( "%15s %15s %15s %15s %15s %15s %15s %15s\n", cloudlet.getCloudletId ( ), "SUCCESS", ( cloudlet.getResourceId ( ) - 1 ), cloudlet.getVmId ( ), dft.format ( cloudlet.getActualCPUTime ( ) ), dft.format ( cloudlet.getExecStartTime ( ) ), dft.format ( cloudlet.getFinishTime ( ) ), dft.format ( cloudlet.getWaitingTime ( ) ) );
                 totalValues++;
 
                 response_time[ i ] = cloudlet.getActualCPUTime ( );
             }
         }
+        Log.printLine ( formatterOutput );
+
         DoubleSummaryStatistics stats = DoubleStream.of ( response_time ).summaryStatistics ( );
 
         // Show the parameters and print them out
@@ -508,7 +495,7 @@ public class CloudsimCSA {
         Log.printLine ( "Total Cloudlets Finished : " + totalValues );
 
         // Average Cloudlets Finished
-        Log.printLine ( "Average Cloudlets Finished : " + ( totalValues / size ) );
+        Log.printLine ( "Average Cloudlets Finished : " + ( CPUTimeSum / totalValues ) );
 
         // Average Start Time
         double totalStartTime = 0.0;
@@ -554,6 +541,7 @@ public class CloudsimCSA {
         Log.printLine ( "Throughput: " + throughput );
 
         // Makespan
+        assert cloudlet != null;
         double makespan = cloudlet.getFinishTime ( );
         Log.printLine ( "Makespan: " + makespan );
 
@@ -573,30 +561,9 @@ public class CloudsimCSA {
         Log.printLine ( String.format ( "Total Energy Consumption: %.2f kWh",
                 ( datacenter1.getPower ( ) + datacenter2.getPower ( ) + datacenter3.getPower ( ) + datacenter4.getPower ( ) + datacenter5.getPower ( ) + datacenter6.getPower ( ) ) / ( 3600 * 1000 ) ) );
 
-        // Save the output to a file
-//        PrintStream o = new PrintStream ( new File ( System.getProperty ( "user.dir" ) + "/output/CSA/SDSCResult.txt" ) ); // SDSC
-//        PrintStream o = new PrintStream ( new File ( System.getProperty ( "user.dir" ) + "/output/CSA/SimpleRandomResult1000.txt" ) ); // RandSimple1000
-//        PrintStream o = new PrintStream ( new File ( System.getProperty ( "user.dir" ) + "/output/CSA/SimpleRandomResult2000.txt" ) ); // RandSimple2000
-//        PrintStream o = new PrintStream ( new File ( System.getProperty ( "user.dir" ) + "/output/CSA/SimpleRandomResult3000.txt" ) ); // RandSimple3000
-//        PrintStream o = new PrintStream ( new File ( System.getProperty ( "user.dir" ) + "/output/CSA/SimpleRandomResult4000.txt" ) ); // RandSimple4000
-//        PrintStream o = new PrintStream ( new File ( System.getProperty ( "user.dir" ) + "/output/CSA/SimpleRandomResult5000.txt" ) ); // RandSimple5000
-//        PrintStream o = new PrintStream ( new File ( System.getProperty ( "user.dir" ) + "/output/CSA/SimpleRandomResult6000.txt" ) ); // RandSimple6000
-//        PrintStream o = new PrintStream ( new File ( System.getProperty ( "user.dir" ) + "/output/CSA/SimpleRandomResult7000.txt" ) ); // RandSimple7000
-//        PrintStream o = new PrintStream ( new File ( System.getProperty ( "user.dir" ) + "/output/CSA/SimpleRandomResult8000.txt" ) ); // RandSimple8000
-//        PrintStream o = new PrintStream ( new File ( System.getProperty ( "user.dir" ) + "/output/CSA/SimpleRandomResult9000.txt" ) ); // RandSimple9000
-//        PrintStream o = new PrintStream ( new File ( System.getProperty ( "user.dir" ) + "/output/CSA/SimpleRandomResult10000.txt" ) ); // RandSimple10000
-        PrintStream o = new PrintStream ( new File ( System.getProperty ( "user.dir" ) + "/output/CSA/StratifiedRandomResult1000.txt" ) ); // RandStratified1000
-//        PrintStream o = new PrintStream ( new File ( System.getProperty ( "user.dir" ) + "/output/CSA/StratifiedRandomResult2000.txt" ) ); // RandStratified2000
-//        PrintStream o = new PrintStream ( new File ( System.getProperty ( "user.dir" ) + "/output/CSA/StratifiedRandomResult3000.txt" ) ); // RandStratified3000
-//        PrintStream o = new PrintStream ( new File ( System.getProperty ( "user.dir" ) + "/output/CSA/StratifiedRandomResult4000.txt" ) ); // RandStratified4000
-//        PrintStream o = new PrintStream ( new File ( System.getProperty ( "user.dir" ) + "/output/CSA/StratifiedRandomResult5000.txt" ) ); // RandStratified5000
-//        PrintStream o = new PrintStream ( new File ( System.getProperty ( "user.dir" ) + "/output/CSA/StratifiedRandomResult6000.txt" ) ); // RandStratified6000
-//        PrintStream o = new PrintStream ( new File ( System.getProperty ( "user.dir" ) + "/output/CSA/StratifiedRandomResult7000.txt" ) ); // RandStratified7000
-//        PrintStream o = new PrintStream ( new File ( System.getProperty ( "user.dir" ) + "/output/CSA/StratifiedRandomResult8000.txt" ) ); // RandStratified8000
-//        PrintStream o = new PrintStream ( new File ( System.getProperty ( "user.dir" ) + "/output/CSA/StratifiedRandomResult9000.txt" ) ); // RandStratified9000
-//        PrintStream o = new PrintStream ( new File ( System.getProperty ( "user.dir" ) + "/output/CSA/StratifiedRandomResult10000.txt" ) ); // RandStratified10000
-//        PrintStream o = new PrintStream ( new File ( System.getProperty ( "user.dir" ) + "/output/CSA/StratifiedRandomResultTest100.txt" ) ); // RandStratifiedTest100
+        PrintStream o = new PrintStream ( new File ( System.getProperty ( "user.dir" ) + "/output/CSA/" + datasetName + "Result" + nTask + ".txt" ) );
         System.setOut ( o );
+
         System.out.println ( "Total CPU Time : " + CPUTimeSum );
         System.out.println ( "Total Wait Time : " + waitTimeSum );
         System.out.println ( "Total Cloudlets Finished : " + totalValues );

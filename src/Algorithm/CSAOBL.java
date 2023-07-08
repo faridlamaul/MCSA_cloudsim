@@ -15,16 +15,16 @@ public class CSAOBL {
     public void randomAllocateTasksToVm ( int M, int N, List<Cloudlet> cloudletList, List<Vm> vmlist, ArrayList<Double> csaAllocation ) {
         int[] Task = new int[ N ];
         double ExecutionTime;
-        double ER;
-        double[] TaskRunTime = new double[ N ];
+        double TransmittingTime;
+        double[] TaskRuntime = new double[ N ];
         double[] CompletionTime = new double[ M ];
         for ( int i = 0; i < N; i++ ) {
             int k = csaAllocation.get ( i ).intValue ( );
             Task[ i ] = ( M - 1 ) - k;
             ExecutionTime = cloudletList.get ( i ).getCloudletLength ( ) / ( vmlist.get ( Task[ i ] ).getMips ( ) * vmlist.get ( Task[ i ] ).getNumberOfPes ( ) );
-            ER = ( double ) cloudletList.get ( i ).getCloudletFileSize ( ) / vmlist.get ( Task[ i ] ).getBw ( );
-            TaskRunTime[ i ] = ExecutionTime + ER;
-            CompletionTime[ Task[ i ] ] += TaskRunTime[ i ];
+            TransmittingTime = ( double ) cloudletList.get ( i ).getCloudletFileSize ( ) / vmlist.get ( Task[ i ] ).getBw ( );
+            TaskRuntime[ i ] = ExecutionTime + TransmittingTime;
+            CompletionTime[ Task[ i ] ] += TaskRuntime[ i ];
         }
         this.allocatedTasks = Task;
 
