@@ -1,0 +1,15 @@
+Total CPU Time : 994599.0
+Total Wait Time : 3451806.0
+Total Cloudlets Finished : 2000
+Average Cloudlets Finished : 1
+Average StartTime: 1726.5030000000204
+Average Execution Time: 497.2995
+Average Finish Time: 2223.8025000000216
+Average Waiting time: 1725.903
+Throughput: 0.08154744430309555
+Makespan: 24525.6
+Imbalance Degree: 35.344897792979886
+Total Scheduling Length: 3476331.6
+Resouce Utilization: 75.09908014482826
+Total Energy Consumption: 131.26 kWh
+Total Time to Run Program : 178 seconds
