@@ -31,7 +31,7 @@ import static Algorithm.FitnessFunction.calculateFitness;
 
 public class CloudSimCSA {
     // Set number of task
-    private static final int nTask = 1000;
+    private static final int nTask = 5000;
 
     // Set dataset directory path
     private static final String datasetName = "Stratified";
@@ -333,7 +333,7 @@ public class CloudSimCSA {
         System.out.println ( "Total Time to Run Program : " + totalTime / 1_000_000_000 + " seconds" );
     }
 
-    // Method to create Datacenter
+    // Method to create Host and Datacenter
     private static PowerDatacenter createDatacenter ( String name, int hostId ) {
 
         // Here are the steps needed to create a PowerDatacenter:
@@ -564,10 +564,10 @@ public class CloudSimCSA {
         PrintStream o = new PrintStream ( new File ( System.getProperty ( "user.dir" ) + "/output/CSA/" + datasetName + "Result" + nTask + ".txt" ) );
         System.setOut ( o );
 
-        System.out.println ( "Total CPU Time : " + CPUTimeSum );
-        System.out.println ( "Total Wait Time : " + waitTimeSum );
-        System.out.println ( "Total Cloudlets Finished : " + totalValues );
-        System.out.println ( "Average Cloudlets Finished : " + ( totalValues / size ) );
+        System.out.println ( "Total CPU Time: " + CPUTimeSum );
+        System.out.println ( "Total Wait Time: " + waitTimeSum );
+        System.out.println ( "Total Cloudlets Finished: " + totalValues );
+        System.out.println ( "Average Cloudlets Finished: " + ( totalValues / size ) );
         System.out.println ( "Average StartTime: " + avgStartTime );
         System.out.println ( "Average Execution Time: " + avgExecTime );
         System.out.println ( "Average Finish Time: " + avgFinishTime );

@@ -31,7 +31,7 @@ import static Algorithm.FitnessFunction.calculateFitness;
 
 public class CloudSimCSAOBL {
     // Set number of task
-    private static final int nTask = 1000;
+    private static final int nTask = 5000;
 
     // Set dataset directory path
     private static final String datasetName = "Stratified";
@@ -614,10 +614,10 @@ public class CloudSimCSAOBL {
         PrintStream o = new PrintStream ( new File ( System.getProperty ( "user.dir" ) + "/output/CSAOBL/" + datasetName + "Result" + nTask + ".txt" ) );
         System.setOut ( o );
 
-        System.out.println ( "Total CPU Time : " + CPUTimeSum );
-        System.out.println ( "Total Wait Time : " + waitTimeSum );
-        System.out.println ( "Total Cloudlets Finished : " + totalValues );
-        System.out.println ( "Average Cloudlets Finished : " + ( totalValues / size ) );
+        System.out.println ( "Total CPU Time: " + CPUTimeSum );
+        System.out.println ( "Total Wait Time: " + waitTimeSum );
+        System.out.println ( "Total Cloudlets Finished: " + totalValues );
+        System.out.println ( "Average Cloudlets Finished: " + ( totalValues / size ) );
         System.out.println ( "Average StartTime: " + avgStartTime );
         System.out.println ( "Average Execution Time: " + avgExecTime );
         System.out.println ( "Average Finish Time: " + avgFinishTime );
