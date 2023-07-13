@@ -31,7 +31,7 @@ import static Algorithm.FitnessFunction.calculateFitness;
 
 public class CloudSimCSA {
     // Set number of task
-    private static final int nTask = 5000;
+    private static final int nTask = 10000;
 
     // Set dataset directory path
     private static final String datasetName = "Stratified";
@@ -449,7 +449,7 @@ public class CloudSimCSA {
         return broker;
     }
 
-    //
+    // Method to print the Cloudlet List
     private static void printCloudletList ( List<Cloudlet> list ) throws FileNotFoundException {
 
         // Initializing the printed output to zero

@@ -6,6 +6,7 @@ import org.cloudbus.cloudsim.Vm;
 import java.util.List;
 
 public class FitnessFunction {
+    // Calculate makespan based on the allocation of tasks to VMs
     public static double calculateFitness ( List<Cloudlet> cloudletList, List<Vm> vmlist, int[] allocatedTasks ) {
         int N = cloudletList.size ( );
         int M = vmlist.size ( );

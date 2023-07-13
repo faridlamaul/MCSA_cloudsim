@@ -11,7 +11,7 @@ public class CSAOBL {
 
     public double makespan;
 
-    // Randomly allocate tasks to VM
+    // Randomly allocate tasks to VM based on opposite allocation from CSA
     public void randomAllocateTasksToVm ( int M, int N, List<Cloudlet> cloudletList, List<Vm> vmlist, ArrayList<Double> csaAllocation ) {
         int[] Task = new int[ N ];
         double ExecutionTime;

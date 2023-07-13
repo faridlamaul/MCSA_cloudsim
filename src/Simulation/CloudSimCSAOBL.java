@@ -31,7 +31,7 @@ import static Algorithm.FitnessFunction.calculateFitness;
 
 public class CloudSimCSAOBL {
     // Set number of task
-    private static final int nTask = 5000;
+    private static final int nTask = 10000;
 
     // Set dataset directory path
     private static final String datasetName = "Stratified";
@@ -121,6 +121,7 @@ public class CloudSimCSAOBL {
         return listOfTask;
     }
 
+    // Method to store Allocation Task Data from CSA
     private static ArrayList<Double> getAllocationTaskCSAValue ( int allocationTaskNum ) {
 
         // Creating listOfAllocationTask to store Tasks from the dataset
@@ -263,7 +264,7 @@ public class CloudSimCSAOBL {
             // Get the CSA allocation
             ArrayList<Double> csaAllocation = getAllocationTaskCSAValue ( cloudletNumber );
 
-            // Create an object of CSA-OBL class
+            // Create an object of CSAOBL class
             CSAOBL csaObl = new CSAOBL ( );
 
             System.out.println ( "CSA-OBL Initialize Allocation Started!" );
@@ -499,7 +500,7 @@ public class CloudSimCSAOBL {
         return broker;
     }
 
-    //
+    // Method to print the Cloudlet List
     private static void printCloudletList ( List<Cloudlet> list ) throws FileNotFoundException {
 
         // Initializing the printed output to zero
